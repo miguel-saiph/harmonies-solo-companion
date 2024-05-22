@@ -1,5 +1,8 @@
 import PressableOpacity from "@/components/PressableAnimation";
 import { ThemedText } from "@/components/ThemedText";
+import { CardNames, MapType } from "@/components/main/CardNames";
+import { HighScore } from "@/components/main/HighScore";
+import { Medal, MedalType } from "@/components/main/Medal";
 import { useRef, useEffect } from "react";
 import { Button, ImageBackground, Pressable, Text, View } from "react-native";
 import { Image, Animated } from 'react-native';
@@ -45,9 +48,9 @@ export default function MainScreen({ navigation, route }: any) {
                 }}>
                     <ThemedText style={{ 
                         fontFamily: 'VixarASCI',
-                        fontSize: 30,
+                        fontSize: 35,
                         color: '#8b8679',
-                        paddingTop: 25
+                        paddingTop: 25,
                     }}>
                         Air, Land and Sea
                     </ThemedText>
@@ -55,11 +58,29 @@ export default function MainScreen({ navigation, route }: any) {
                         width: 300,
                         height: 200
                      }} resizeMode={"contain"} />
-                     <Image source={require('@/assets/images/maps/map_a.png')} style={{
+                     {/* <Image source={require('@/assets/images/maps/map_a.png')} style={{
                         width: 100,
                         height: 80,
                         paddingTop: 50
-                     }} resizeMode={"contain"} />
+                     }} resizeMode={"contain"} /> */}
+                     <CardNames animals={
+                        [
+                            { name: 'Vulture', type: 'rock'},
+                            { name: 'Wolf', type: 'grass'},
+                            { name: 'Fish', type: 'water'},
+                        ]
+                        } mapType={MapType.A}>
+                     </CardNames>
+                     <View style={{
+                        display: 'flex',
+                        flexDirection: 'row',
+                        marginTop: 10
+                     }}>
+                        <Medal type={MedalType.Bronze}></Medal>
+                        <Medal type={MedalType.Silver}></Medal>
+                        <Medal type={MedalType.Gold}></Medal>
+                     </View>
+                     <HighScore></HighScore>
                 </View>
     
             </ImageBackground>
