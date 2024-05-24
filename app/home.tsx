@@ -8,7 +8,7 @@ export default function HomeScreen({navigation}: any) {
 
     const onPress = () => {
         setTimeout(() => {
-            navigation.navigate('Main', {name: 'Main'})
+            navigation.navigate('Carousel', {name: 'Carousel'})
         }, 500) 
         // InteractionManager.runAfterInteractions(() => {
         //     navigation.navigate('Main', {name: 'Main'})
