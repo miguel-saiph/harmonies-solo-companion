@@ -9,7 +9,7 @@ export default function HomeScreen({navigation}: any) {
     const onPress = () => {
         setTimeout(() => {
             navigation.navigate('Carousel', {name: 'Carousel'})
-        }, 500) 
+        }, 500)
         // InteractionManager.runAfterInteractions(() => {
         //     navigation.navigate('Main', {name: 'Main'})
         //   });

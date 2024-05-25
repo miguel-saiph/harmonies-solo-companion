@@ -1,7 +1,7 @@
 import { View, StyleSheet } from "react-native";
 import { ThemedText } from "../ThemedText";
 
-export function HighScore() {
+export function HighScore({value}: {value: number}) {
     return (
         <View style={{
             display: 'flex',
@@ -12,7 +12,7 @@ export function HighScore() {
                 Highscore:
             </ThemedText>
             <ThemedText style={styles.text}>
-                130
+                {value}
             </ThemedText>
         </View>
     );

@@ -80,7 +80,7 @@ export default function MainScreen({ navigation, route }: any) {
                         <Medal type={MedalType.Silver}></Medal>
                         <Medal type={MedalType.Gold}></Medal>
                      </View>
-                     <HighScore></HighScore>
+                     <HighScore value={0}></HighScore>
                 </View>
     
             </ImageBackground>

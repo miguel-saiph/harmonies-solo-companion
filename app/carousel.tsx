@@ -11,6 +11,16 @@ import {
     useWindowDimensions,
 } from 'react-native';
 
+import data from '@/data/CardsData.json';
+import { IAnimalInfo } from '@/components/main/CardNames';
+
+export interface IScenario {
+    name: string,
+    type: string,
+    animals: IAnimalInfo[],
+    map: number
+}
+
 const images = new Array(15).fill(
     'https://images.unsplash.com/photo-1556740749-887f6717d7e4',
 );
@@ -18,7 +28,7 @@ const images = new Array(15).fill(
 export default function Carousel({ navigation }: any) {
     const scrollX = useRef(new Animated.Value(0)).current;
 
-    const { width: windowWidth, height: windowHeight } = useWindowDimensions();
+    const { width: windowWidth } = useWindowDimensions();
 
     return (
         <SafeAreaView style={styles.container}>
@@ -43,28 +53,28 @@ export default function Carousel({ navigation }: any) {
                             },
                         ], { useNativeDriver: false })}
                         scrollEventThrottle={1}>
-                        {images.map((image, imageIndex) => {
+                        {data.scenarios.map((scenario, index) => {
                             return (
-                                <View style={{ width: windowWidth, height: 580 }} key={imageIndex}>
-                                    <Card />
+                                <View style={{ width: windowWidth, height: 580 }} key={index}>
+                                    <Card scenario={scenario as unknown as IScenario} index={index} />
                                 </View>
                             );
                         })}
                     </ScrollView>
                     <View style={styles.indicatorContainer}>
-                        {images.map((image, imageIndex) => {
+                        {data.scenarios.map((scenario, index) => {
                             const width = scrollX.interpolate({
                                 inputRange: [
-                                    windowWidth * (imageIndex - 1),
-                                    windowWidth * imageIndex,
-                                    windowWidth * (imageIndex + 1),
+                                    windowWidth * (index - 1),
+                                    windowWidth * index,
+                                    windowWidth * (index + 1),
                                 ],
                                 outputRange: [8, 16, 8],
                                 extrapolate: 'clamp',
                             });
                             return (
                                 <Animated.View
-                                    key={imageIndex}
+                                    key={index}
                                     style={[styles.normalDot, { width }]}
                                 />
                             );

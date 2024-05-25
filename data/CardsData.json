@@ -1,0 +1,150 @@
+{
+    "scenarios": [
+        {
+            "name": "Air, Land and Sea",
+            "type": "rock",
+            "animals": [
+                { "name": "Vulture", "type": "rock" },
+                { "name": "Wolf", "type": "grass" },
+                { "name": "Fish", "type": "water" }
+            ],
+            "map": 0
+        },
+        {
+            "name": "Wingspan",
+            "type": "constru",
+            "animals": [
+                { "name": "Raven", "type": "land" },
+                { "name": "Duck", "type": "water" },
+                { "name": "Peacock", "type": "constru" }
+            ],
+            "map": 1
+        },
+        {
+            "name": "Up in the Trees",
+            "type": "grass",
+            "animals": [
+                { "name": "Koala", "type": "grass" },
+                { "name": "Panther", "type": "land" },
+                { "name": "Snow Fox", "type": "land" }
+            ],
+            "map": 0
+        },
+        {
+            "name": "Mixed Bag",
+            "type": "constru",
+            "animals": [
+                { "name": "Alpaca", "type": "land" },
+                { "name": "Bat", "type": "rock" },
+                { "name": "Squirrel", "type": "constru" }
+            ],
+            "map": 1
+        },
+        {
+            "name": "The Sky is the Limit",
+            "type": "water",
+            "animals": [],
+            "map": 0
+        },
+        {
+            "name": "Welcome to the Jungle",
+            "type": "grass",
+            "animals": [
+                { "name": "Dragonfly", "type": "water" },
+                { "name": "Parrot", "type": "grass" },
+                { "name": "Frog", "type": "water" }
+            ],
+            "map": 1
+        },
+        {
+            "name": "Calm Mountains",
+            "type": "rock",
+            "animals": [
+                { "name": "Capricorn", "type": "rock" },
+                { "name": "Baboon", "type": "rock" },
+                { "name": "Bear", "type": "grass" }
+            ],
+            "map": 0
+        },
+        {
+            "name": "Islands in the Sun",
+            "type": "water",
+            "animals": [
+                { "name": "Butterfly", "type": "land" },
+                { "name": "Racoon", "type": "land" },
+                { "name": "Flamingo", "type": "water" }
+            ],
+            "map": 1
+        },
+        {
+            "name": "Town in the Woods",
+            "type": "grass",
+            "animals": [
+                { "name": "Cat", "type": "constru" },
+                { "name": "Hedgehog", "type": "constru" },
+                { "name": "Boar", "type": "grass" }
+            ],
+            "map": 0
+        },
+        {
+            "name": "Lush Green",
+            "type": "grass",
+            "animals": [
+                { "name": "Owl", "type": "grass" },
+                { "name": "Rabbit", "type": "grass" },
+                { "name": "Otter", "type": "water" }
+            ],
+            "map": 1
+        },
+        {
+            "name": "Hiding in the Rubble",
+            "type": "rock",
+            "animals": [
+                { "name": "Marmot", "type": "rock" },
+                { "name": "Desert Fox", "type": "rock" },
+                { "name": "Meerkat", "type": "rock" }
+            ],
+            "map": 0
+        },
+        {
+            "name": "Fields of Gold",
+            "type": "grass",
+            "animals": [
+                { "name": "Lion", "type": "land" },
+                { "name": "Bumblebee", "type": "grass" },
+                { "name": "Ladybug", "type": "land" }
+            ],
+            "map": 1
+        },
+        {
+            "name": "Alternative Reality Amazonas",
+            "type": "water",
+            "animals": [
+                { "name": "Deer", "type": "grass" },
+                { "name": "Crocodile", "type": "water" },
+                { "name": "Kingfisher", "type": "grass" }
+            ],
+            "map": 0
+        },
+        {
+            "name": "Splish Splash Water-home",
+            "type": "rock",
+            "animals": [
+                { "name": "Tortoise", "type": "water" },
+                { "name": "Ray", "type": "water" },
+                { "name": "Penguin", "type": "rock" }
+            ],
+            "map": 1
+        },
+        {
+            "name": "Dorfromantik",
+            "type": "constru",
+            "animals": [
+                { "name": "Stork", "type": "constru" },
+                { "name": "Mouse", "type": "constru" },
+                { "name": "Lizard", "type": "constru" }
+            ],
+            "map": 0
+        }
+    ]
+}
