@@ -90,7 +90,7 @@ const styles = StyleSheet.create({
         width: 87,
         height: 72,
         paddingTop: 140,
-        paddingRight: 120,
+        paddingRight: 100,
         // flex: 3
     }
 });
