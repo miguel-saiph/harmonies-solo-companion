@@ -21,10 +21,6 @@ export interface IScenario {
     map: number
 }
 
-const images = new Array(15).fill(
-    'https://images.unsplash.com/photo-1556740749-887f6717d7e4',
-);
-
 export default function Carousel({ navigation }: any) {
     const scrollX = useRef(new Animated.Value(0)).current;
 

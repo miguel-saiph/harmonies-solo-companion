@@ -3,6 +3,7 @@ import { ThemedText } from "@/components/ThemedText";
 import { CardNames, MapType } from "@/components/main/CardNames";
 import { HighScore } from "@/components/main/HighScore";
 import { Medal, MedalType } from "@/components/main/Medal";
+import DataManager from "@/data/DataManager";
 import React, { useEffect } from "react";
 import { useState } from "react";
 import { Alert, Button, ImageSourcePropType, TouchableOpacity, View, Modal, StyleSheet, TextInput } from "react-native";
@@ -43,11 +44,14 @@ export default function Card({ scenario, index }: { scenario: IScenario, index: 
     const onScoreSubmitted = (): void => {
         if (parseInt(number) > highscore) {
             onChangeHighscore(parseInt(number));
+            DataManager.instance.setNewHighscore(index, parseInt(number));
         }
     }
 
     useEffect(() => {
         // onChangeHighscore("0");
+        const previousHighscore: number = DataManager.instance.getHighscore(index);
+        onChangeHighscore(previousHighscore);
     }, []);
 
     return (
@@ -89,9 +93,9 @@ export default function Card({ scenario, index }: { scenario: IScenario, index: 
                 flexDirection: 'row',
                 marginTop: 10
              }}>
-                <Medal type={MedalType.Bronze}></Medal>
-                <Medal type={MedalType.Silver}></Medal>
-                <Medal type={MedalType.Gold}></Medal>
+                <Medal type={MedalType.Bronze} score={highscore}></Medal>
+                <Medal type={MedalType.Silver} score={highscore}></Medal>
+                <Medal type={MedalType.Gold} score={highscore}></Medal>
              </View>
              {/* <View style={{
                 display: 'flex',
@@ -204,6 +208,7 @@ const styles = StyleSheet.create({
         fontSize: 25,
         fontFamily: 'VixarASCI',
         textAlign: 'center',
+        color: "black",
       },
       input: {
         height: 50,

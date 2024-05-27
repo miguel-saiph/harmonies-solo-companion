@@ -1,10 +1,16 @@
 import PressableOpacity from "@/components/PressableAnimation";
 import { ThemedText } from "@/components/ThemedText";
+import DataManager from "@/data/DataManager";
 import { useRef, useEffect } from "react";
 import { Button, InteractionManager, Pressable, Text, View } from "react-native";
 import { Image, Animated } from 'react-native';
 
 export default function HomeScreen({navigation}: any) {
+
+    useEffect(() => {
+        DataManager.init();
+        DataManager.instance.getHighscore(1);
+    }, []);
 
     const onPress = () => {
         setTimeout(() => {

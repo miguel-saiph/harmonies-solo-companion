@@ -1,0 +1,113 @@
+import AsyncStorage from "@react-native-async-storage/async-storage";
+import data from '@/data/CardsData.json';
+
+export interface IStorageData {
+    audio: boolean;
+    version: number;
+    scenarios: IScenarioData[];
+}
+
+export interface IScenarioData {
+    id: number;
+    highscore: number;
+}
+
+export default class DataManager {
+    private storageData!: IStorageData;
+    private localData: { [key: number]: any } = {};
+    private dataVersion: number = 0.3;
+
+    public allUnlocked: boolean = false;
+
+    private static _instance: DataManager;
+
+    public static get instance(): DataManager {
+        if (!this._instance) {
+            this._instance = new DataManager();
+        }
+
+        return this._instance;
+    }
+
+    public static init(): DataManager {
+        return DataManager.instance;
+    }
+
+    public constructor() {
+        DataManager._instance = this;
+        this.initData();
+        this.loadData();
+        console.log('[DataManager] storageData: ' +JSON.stringify(this.storageData));
+        // console.log('[DataManager] localData: ' +JSON.stringify(this.localData));
+    }
+
+    private initData(): void {
+        this.storageData = {
+            audio: true,
+            version: this.dataVersion,
+            scenarios: []
+        };
+        for (let i: number = 0; i < data.scenarios.length; i++) {
+            this.storageData.scenarios.push({ id: i, highscore: 0 });   
+        }
+    }
+
+    private loadData = async () => {
+        try {
+          const value = await AsyncStorage.getItem('version');
+          
+          if (value !== null) { // && JSON.parse(value).version === this.storageData.version
+            // value previously stored
+            this.storageData = JSON.parse(value);
+          } else {
+            // value previously stored
+            this.initData();
+            this.saveData(this.storageData);
+          }
+        } catch (e) {
+          // error reading value
+        }
+      };
+
+    private saveData = async (value: any) => {
+        try {
+          const jsonValue = JSON.stringify(value);
+          await AsyncStorage.setItem('version', jsonValue);
+        } catch (e) {
+          // saving error
+          console.log('Error: ', e);
+        }
+      };
+
+    // public isAudioEnabled(): boolean {
+    //     return cc.sys.localStorage.getItem('audio') === 'true';
+    // }
+    // public setAudioEnabled(enabled: boolean) {
+    //     this.saveData('audio', enabled);
+    // }
+
+    public getScenarios(): IScenarioData[] {
+        return this.storageData.scenarios.slice();
+    }
+
+    public getScenario(index: number): IScenarioData {
+        return this.storageData.scenarios[index];
+    }
+
+    public setNewHighscore(id: number, highscore: number): void {
+        this.storageData.scenarios[id].highscore = highscore;
+        this.saveData(this.storageData);
+    }
+
+    public getHighscore(id: number): number {
+        return this.storageData.scenarios[id].highscore;
+    }
+
+
+    // public clearData(): void {
+    //     cc.sys.localStorage.clear();
+    //     this.initData();
+    //     this.saveAllData();
+    // }
+
+}
