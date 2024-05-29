@@ -145,7 +145,7 @@ export default function Card({ scenario, index }: { scenario: IScenario, index: 
                             }}
                             style={styles.inputButton}
                             >
-                                <ThemedText style={styles.appButtonText} >Submit</ThemedText>
+                                <ThemedText style={styles.appButtonText} >Ok</ThemedText>
                         </TouchableOpacity>
                     </View>
                     </View>

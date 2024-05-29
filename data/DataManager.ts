@@ -5,6 +5,7 @@ export interface IStorageData {
     audio: boolean;
     version: number;
     scenarios: IScenarioData[];
+    lastScenario: number;
 }
 
 export interface IScenarioData {
@@ -45,7 +46,8 @@ export default class DataManager {
         this.storageData = {
             audio: true,
             version: this.dataVersion,
-            scenarios: []
+            scenarios: [],
+            lastScenario: 0
         };
         for (let i: number = 0; i < data.scenarios.length; i++) {
             this.storageData.scenarios.push({ id: i, highscore: 0 });   
@@ -101,6 +103,15 @@ export default class DataManager {
 
     public getHighscore(id: number): number {
         return this.storageData.scenarios[id].highscore;
+    }
+
+    public setLastScenario(id: number): void {
+        this.storageData.lastScenario = id;
+        this.saveData(this.storageData);
+    }
+
+    public getLastScenario(): number {
+        return this.storageData.lastScenario;
     }
 
 

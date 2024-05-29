@@ -1,5 +1,5 @@
 import Card from '@/components/main/Card';
-import React, { useRef } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import {
     SafeAreaView,
     ScrollView,
@@ -13,6 +13,7 @@ import {
 
 import data from '@/data/CardsData.json';
 import { IAnimalInfo } from '@/components/main/CardNames';
+import DataManager from '@/data/DataManager';
 
 export interface IScenario {
     name: string,
@@ -22,9 +23,33 @@ export interface IScenario {
 }
 
 export default function Carousel({ navigation }: any) {
-    const scrollX = useRef(new Animated.Value(0)).current;
-
+    let scrollX = useRef(new Animated.Value(0)).current;
+    const [xCoords, setXCoords] = useState([] as number[]);
+    const [loaded, setLoaded] = useState(false);
+    const [fullyLoaded, setFullyLoaded] = useState(false);
+    const refScrollView = useRef(null);
     const { width: windowWidth } = useWindowDimensions();
+    const [fadeAnim] = useState(new Animated.Value(1));
+
+    useEffect(() => {
+        // refScrollView.current.scrollTo({x: xCoords[2], animated: false});
+        Animated.timing(fadeAnim, {
+            toValue: 0,
+            duration: 500,
+            useNativeDriver: false
+          }).start(({finished}) => {
+            if (finished) {
+                setFullyLoaded(true);
+            }
+        })
+    }, [loaded, refScrollView]);
+
+    const handleScroll = (event: any) => {
+        const index: number = xCoords.indexOf((scrollX as any).__getValue(), 0);
+        if (index !== -1) {
+            DataManager.instance.setLastScenario(index);
+        }
+    };
 
     return (
         <SafeAreaView style={styles.container}>
@@ -37,22 +62,45 @@ export default function Carousel({ navigation }: any) {
             }}>
                 <View style={styles.scrollContainer}>
                     <ScrollView
+                        ref={refScrollView}
                         horizontal={true}
                         pagingEnabled
+                        contentOffset={
+                            {
+                                x: xCoords[DataManager.instance.getLastScenario()],
+                                y: 0
+                            }
+                        }
                         showsHorizontalScrollIndicator={false}
-                        onScroll={Animated.event([
+                        onScroll={
+                            Animated.event([
                             {
                                 nativeEvent: {
                                     contentOffset: {
                                         x: scrollX,
-                                    },
+                                    }
                                 },
                             },
-                        ], { useNativeDriver: false })}
+                            ], { useNativeDriver: false,
+                                listener: handleScroll
+                             })
+                        }
                         scrollEventThrottle={1}>
                         {data.scenarios.map((scenario, index) => {
                             return (
-                                <View style={{ width: windowWidth, height: 580 }} key={index}>
+                                <View style={{ width: windowWidth, height: 580 }} key={index}
+                                onLayout={
+                                    event => {
+                                        const layout = event.nativeEvent.layout;
+                                        xCoords[index] = layout.x;
+                                        if (index >= data.scenarios.length - 1) {
+                                            setLoaded(true);
+                                        }
+                                    }
+                                }
+                                onPointerEnterCapture={
+                                    () => { DataManager.instance.setLastScenario(index) }
+                                }>
                                     <Card scenario={scenario as unknown as IScenario} index={index} />
                                 </View>
                             );
@@ -79,7 +127,15 @@ export default function Carousel({ navigation }: any) {
                     </View>
                 </View>
             </ImageBackground>
-
+            <Animated.View style={{
+                flex: 1,
+                width: '100%',
+                height: '100%',
+                backgroundColor: 'white',
+                position: 'absolute',
+                opacity: fadeAnim,
+                display: fullyLoaded ? 'none' : 'flex'
+            }}/>
         </SafeAreaView>
     );
 };

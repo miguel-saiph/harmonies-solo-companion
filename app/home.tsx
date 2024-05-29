@@ -1,8 +1,6 @@
 import PressableOpacity from "@/components/PressableAnimation";
-import { ThemedText } from "@/components/ThemedText";
 import DataManager from "@/data/DataManager";
-import { useRef, useEffect } from "react";
-import { Button, InteractionManager, Pressable, Text, View } from "react-native";
+import { useEffect } from "react";
 import { Image, Animated } from 'react-native';
 
 export default function HomeScreen({navigation}: any) {
