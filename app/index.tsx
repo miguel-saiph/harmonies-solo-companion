@@ -12,7 +12,7 @@ import * as SplashScreen from 'expo-splash-screen';
 import 'react-native-reanimated';
 
 import { useColorScheme } from '@/hooks/useColorScheme';
-import MainScreen from "./main";
+// import MainScreen from "./main";
 import Carousel from "./carousel";
 
 // Prevent the splash screen from auto-hiding before asset loading is complete.

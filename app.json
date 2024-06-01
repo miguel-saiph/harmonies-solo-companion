@@ -1,7 +1,7 @@
 {
   "expo": {
     "name": "harmonies-solo-app",
-    "slug": "harmonies-solo-app",
+    "slug": "Harmonies Solo App",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/images/icon.png",
@@ -11,6 +11,9 @@
       "image": "./assets/images/splash.png",
       "resizeMode": "contain",
       "backgroundColor": "#ffffff"
+    },
+    "androidNavigationBar": {
+        "visible": "immersive"
     },
     "ios": {
       "supportsTablet": true

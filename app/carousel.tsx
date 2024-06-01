@@ -9,11 +9,14 @@ import {
     ImageBackground,
     Animated,
     useWindowDimensions,
+    TouchableOpacity,
+    Image
 } from 'react-native';
 
 import data from '@/data/CardsData.json';
 import { IAnimalInfo } from '@/components/main/CardNames';
 import DataManager from '@/data/DataManager';
+import { Info } from '@/components/main/Info';
 
 export interface IScenario {
     name: string,
@@ -33,15 +36,17 @@ export default function Carousel({ navigation }: any) {
 
     useEffect(() => {
         // refScrollView.current.scrollTo({x: xCoords[2], animated: false});
-        Animated.timing(fadeAnim, {
-            toValue: 0,
-            duration: 500,
-            useNativeDriver: false
-          }).start(({finished}) => {
-            if (finished) {
-                setFullyLoaded(true);
-            }
-        })
+        setTimeout(() => {
+            Animated.timing(fadeAnim, {
+                toValue: 0,
+                duration: 500,
+                useNativeDriver: false
+              }).start(({finished}) => {
+                if (finished) {
+                    setFullyLoaded(true);
+                }
+            })
+        }, 200);
     }, [loaded, refScrollView]);
 
     const handleScroll = (event: any) => {
@@ -57,9 +62,16 @@ export default function Carousel({ navigation }: any) {
                 width: '100%',
                 height: '100%',
                 justifyContent: "center",
-                alignItems: "center",
+                // alignItems: "center",
                 flex: 1
             }}>
+                <View style={{
+                        flexDirection: 'row',
+                        // alignItems: 'flex-start'
+                        paddingLeft: 20
+                    }}>
+                    <Info/>
+                </View>
                 <View style={styles.scrollContainer}>
                     <ScrollView
                         ref={refScrollView}
@@ -172,6 +184,7 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         alignItems: 'center',
         justifyContent: 'center',
+        marginBottom: -8
     },
 });
 
