@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "harmonies-solo-app",
-    "slug": "Harmonies Solo App",
+    "name": "Harmonies Solo Campaign",
+    "slug": "harmonies-solo-app",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/images/icon.png",
