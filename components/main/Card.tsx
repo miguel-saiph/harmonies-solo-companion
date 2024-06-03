@@ -36,7 +36,7 @@ const nameColorMap: {[key: string]: string} = {
     ['extra']: "#c2641f"
 }
 
-export default function Card({ scenario, index }: { scenario: IScenario, index: number }) {
+export default function Card({ scenario, index, callback }: { scenario: IScenario, index: number, callback: Function }) {
     const [modalVisible, setModalVisible] = useState(false);
     const [number, onChangeNumber] = React.useState('');
     const [highscore, onChangeHighscore] = React.useState(0);
@@ -45,6 +45,7 @@ export default function Card({ scenario, index }: { scenario: IScenario, index: 
         if (parseInt(number) > highscore) {
             onChangeHighscore(parseInt(number));
             DataManager.instance.setNewHighscore(index, parseInt(number));
+            callback();
         }
     }
 

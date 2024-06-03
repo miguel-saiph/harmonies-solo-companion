@@ -114,6 +114,21 @@ export default class DataManager {
         return this.storageData.lastScenario;
     }
 
+    public getGoldMedals(): number {
+        let counter: number = 0;
+        for (let i: number = 0; i < this.storageData.scenarios.length; i++) {
+            const score: number = this.storageData.scenarios[i].highscore;
+            if (score >= 130) {
+                counter += 1;
+            }
+        }
+        return counter;
+    }
+
+    public getTotalGoldMedals(): number {
+        return this.storageData.scenarios.length;
+    }
+
 
     // public clearData(): void {
     //     cc.sys.localStorage.clear();

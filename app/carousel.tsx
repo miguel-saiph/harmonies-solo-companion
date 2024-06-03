@@ -17,6 +17,7 @@ import data from '@/data/CardsData.json';
 import { IAnimalInfo } from '@/components/main/CardNames';
 import DataManager from '@/data/DataManager';
 import { Info } from '@/components/main/Info';
+import { MedalsCount } from '@/components/main/MedalsCount';
 
 export interface IScenario {
     name: string,
@@ -33,9 +34,11 @@ export default function Carousel({ navigation }: any) {
     const refScrollView = useRef(null);
     const { width: windowWidth } = useWindowDimensions();
     const [fadeAnim] = useState(new Animated.Value(1));
+    const [currentMedals, setCurrentMedals] = useState(0);
 
     useEffect(() => {
         // refScrollView.current.scrollTo({x: xCoords[2], animated: false});
+        updateCurrentMedals();
         setTimeout(() => {
             Animated.timing(fadeAnim, {
                 toValue: 0,
@@ -56,6 +59,10 @@ export default function Carousel({ navigation }: any) {
         }
     };
 
+    const updateCurrentMedals = () => {
+        setCurrentMedals(DataManager.instance.getGoldMedals());
+    };
+
     return (
         <SafeAreaView style={styles.container}>
             <ImageBackground source={require('@/assets/images/background.jpg')} style={{
@@ -65,12 +72,9 @@ export default function Carousel({ navigation }: any) {
                 // alignItems: "center",
                 flex: 1
             }}>
-                <View style={{
-                        flexDirection: 'row',
-                        // alignItems: 'flex-start'
-                        paddingLeft: 20
-                    }}>
+                <View style={styles.topBarContainer}>
                     <Info/>
+                    <MedalsCount current={currentMedals}/>
                 </View>
                 <View style={styles.scrollContainer}>
                     <ScrollView
@@ -113,7 +117,7 @@ export default function Carousel({ navigation }: any) {
                                 onPointerEnterCapture={
                                     () => { DataManager.instance.setLastScenario(index) }
                                 }>
-                                    <Card scenario={scenario as unknown as IScenario} index={index} />
+                                    <Card scenario={scenario as unknown as IScenario} index={index} callback={updateCurrentMedals} />
                                 </View>
                             );
                         })}
@@ -157,6 +161,12 @@ const styles = StyleSheet.create({
         flex: 1,
         alignItems: 'center',
         justifyContent: 'center'
+    },
+    topBarContainer: {
+        flexDirection: 'row',
+        justifyContent: 'space-between',
+        paddingLeft: 20,
+        paddingRight: 15
     },
     scrollContainer: {
         height: 550,
