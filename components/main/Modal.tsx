@@ -1,7 +1,15 @@
-import { View, StyleSheet } from "react-native";
+import { View, StyleSheet, DimensionValue } from "react-native";
 import { Modal } from "react-native";
 
-export function CustomModal({ children, modalVisible, onRequestClose, width }: { children: any, modalVisible: boolean, onRequestClose: Function, width: number }) {
+interface Props {
+    children: any,
+    modalVisible: boolean,
+    onRequestClose: Function,
+    width?: DimensionValue | undefined,
+    height?: DimensionValue | undefined
+}
+
+export function CustomModal({ children, modalVisible, onRequestClose, width = 'auto', height = 'auto' }: Props) {
 
     return (
         <Modal
@@ -12,7 +20,7 @@ export function CustomModal({ children, modalVisible, onRequestClose, width }: {
                 onRequestClose(!modalVisible)
             }}>
             <View style={styles.centeredView}>
-                <View style={[styles.modalView, { width: width }]}>
+                <View style={[styles.modalView, { width: width, height: height }]}>
                     {children}
                 </View>
             </View>
