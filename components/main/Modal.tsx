@@ -1,5 +1,6 @@
 import { View, StyleSheet, DimensionValue } from "react-native";
 import { Modal } from "react-native";
+import { CloseButton } from "./CloseButton";
 
 interface Props {
     children: any,
@@ -21,6 +22,7 @@ export function CustomModal({ children, modalVisible, onRequestClose, width = 'a
             }}>
             <View style={styles.centeredView}>
                 <View style={[styles.modalView, { width: width, height: height }]}>
+                    <CloseButton onRequestClose={onRequestClose}/>
                     {children}
                 </View>
             </View>
