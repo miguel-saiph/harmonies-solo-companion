@@ -1,16 +1,13 @@
 import PressableOpacity from "@/components/PressableAnimation";
 import DataManager from "@/data/DataManager";
-import { enterFullScreen } from "@untitled/expo-full-screen";
 import { useEffect } from "react";
 import { Image, Animated } from 'react-native';
-// import { enterFullScreen } from "@untitled/expo-full-screen";
 
 export default function HomeScreen({navigation}: any) {
 
     useEffect(() => {
         DataManager.init();
         DataManager.instance.getHighscore(1);
-        // enterFullScreen();
     }, []);
 
     const onPress = () => {
