@@ -22,7 +22,7 @@ export function Info() {
                 }} />
             </TouchableOpacity>
             <CustomModal modalVisible={modalVisible} width={330} onRequestClose={setModalVisible} children={
-                <View style={{ alignItems: 'center' }}>
+                <View>
                     <ThemedText style={[styles.modalText, styles.title]}>General Rules</ThemedText>
                     <ThemedText style={styles.modalText}>The rules of the official solo mode apply with some modifications:</ThemedText>
                     <ThemedText style={styles.modalText}>{'\u2022'} You start each scenario with 3 cards. To qualify for victory, you must complete all three.</ThemedText>
@@ -66,6 +66,7 @@ const styles = StyleSheet.create({
         fontSize: 20,
         fontFamily: 'VixarASCI',
         color: "black",
+        textAlign: 'left'
     },
     medalIcon: {
         width: 30,

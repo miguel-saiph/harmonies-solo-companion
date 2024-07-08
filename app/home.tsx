@@ -1,7 +1,7 @@
 import PressableOpacity from "@/components/PressableAnimation";
 import DataManager from "@/data/DataManager";
 import { useEffect } from "react";
-import { Image, Animated } from 'react-native';
+import { Image, Animated, SafeAreaView } from 'react-native';
 
 export default function HomeScreen({navigation}: any) {
 
@@ -20,7 +20,7 @@ export default function HomeScreen({navigation}: any) {
     };
 
     return (
-        <Animated.View
+        <SafeAreaView
             style={{
                 flex: 1,
                 justifyContent: "center",
@@ -34,6 +34,6 @@ export default function HomeScreen({navigation}: any) {
                 <Image source={require('@/assets/images/title.png')} style={{ width: '100%' }} resizeMode={"contain"} />
                 
             } onPress={onPress} navigation={navigation} />
-        </Animated.View>
+        </SafeAreaView>
     );
 }
