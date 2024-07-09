@@ -21,7 +21,7 @@ export function Info() {
                     height: 30,
                 }} />
             </TouchableOpacity>
-            <CustomModal modalVisible={modalVisible} width={330} onRequestClose={setModalVisible} children={
+            <CustomModal modalVisible={modalVisible} width={'90%'} onRequestClose={setModalVisible} children={
                 <View>
                     <ThemedText style={[styles.modalText, styles.title]}>General Rules</ThemedText>
                     <ThemedText style={styles.modalText}>The rules of the official solo mode apply with some modifications:</ThemedText>

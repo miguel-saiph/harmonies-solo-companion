@@ -112,7 +112,7 @@ export default function Card({ scenario, index, callback }: { scenario: IScenari
                 >
                     <ThemedText style={styles.appButtonText} >Submit</ThemedText>
                 </TouchableOpacity>
-                <CustomModal modalVisible={modalVisible} width={250} height={300} onRequestClose={setModalVisible}
+                <CustomModal modalVisible={modalVisible} width={'75%'} height={'50%'} onRequestClose={setModalVisible}
                     children={
                         <View style={{alignItems: 'center'}}>
                             <ThemedText style={styles.modalText}>Type your new score:</ThemedText>

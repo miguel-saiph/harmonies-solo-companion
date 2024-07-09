@@ -1,7 +1,8 @@
 import PressableOpacity from "@/components/PressableAnimation";
 import DataManager from "@/data/DataManager";
 import { useEffect } from "react";
-import { Image, Animated, SafeAreaView } from 'react-native';
+import { Image, Animated, SafeAreaView, ImageBackground } from 'react-native';
+import {StatusBar} from "expo-status-bar";
 
 export default function HomeScreen({navigation}: any) {
 
@@ -27,13 +28,15 @@ export default function HomeScreen({navigation}: any) {
                 alignItems: "center"
             }}
         >
-            {/* <ThemedText style={{ fontFamily: 'VixarASCI' }}>
-                Capricorn
-            </ThemedText> */}
+            <StatusBar style="dark"
+                       translucent={true}
+                       hidden={false}
+            />
             <PressableOpacity children={
-                <Image source={require('@/assets/images/title.png')} style={{ width: '100%' }} resizeMode={"contain"} />
+                <ImageBackground source={require('@/assets/images/title.png')} style={{ width: '100%', height: '100%' }} resizeMode={"cover"} />
                 
             } onPress={onPress} navigation={navigation} />
+            
         </SafeAreaView>
     );
 }

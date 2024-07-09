@@ -47,7 +47,7 @@ export function Calculator({ onScoreSubmitted, updateScore }: { onScoreSubmitted
                     height: 40,
                 }} />
             </TouchableOpacity>
-            <CustomModal modalVisible={modalVisible} width={330} onRequestClose={setModalVisible} children={
+            <CustomModal modalVisible={modalVisible} width={'90%'} onRequestClose={setModalVisible} children={
                 <View style={{ alignItems: 'center' }}>
                     <ThemedText style={[styles.modalText, styles.title]}>Calculator</ThemedText>
                     <View style={{ alignItems: 'center' }}>
