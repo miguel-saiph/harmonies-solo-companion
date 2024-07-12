@@ -18,6 +18,7 @@ import { IAnimalInfo } from '@/components/main/CardNames';
 import DataManager from '@/data/DataManager';
 import { Info } from '@/components/main/Info';
 import { MedalsCount } from '@/components/main/MedalsCount';
+import { ScenarioNumber } from '@/components/main/ScenarioNumber';
 
 export interface IScenario {
     name: string,
@@ -117,7 +118,9 @@ export default function Carousel({ navigation }: any) {
                                 onPointerEnterCapture={
                                     () => { DataManager.instance.setLastScenario(index) }
                                 }>
+                                    
                                     <Card scenario={scenario as unknown as IScenario} index={index} callback={updateCurrentMedals} />
+                                    <ScenarioNumber number={index + 1} />
                                 </View>
                             );
                         })}
@@ -173,15 +176,6 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         justifyContent: 'center',
         paddingTop: 5
-    },
-    card: {
-        flex: 1,
-        marginVertical: 4,
-        marginHorizontal: 16,
-        borderRadius: 5,
-        overflow: 'hidden',
-        alignItems: 'center',
-        justifyContent: 'center',
     },
     normalDot: {
         height: 8,

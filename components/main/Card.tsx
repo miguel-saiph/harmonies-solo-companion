@@ -70,7 +70,7 @@ export default function Card({ scenario, index, callback }: { scenario: IScenari
             shadowRadius: 9.31,
             elevation: 7,
             borderRadius: 20,
-            opacity: .8
+            opacity: .9
         }}>
             <ThemedText style={{
                 fontFamily: 'VixarASCI',
@@ -80,6 +80,7 @@ export default function Card({ scenario, index, callback }: { scenario: IScenari
             }}>
                 {scenario.name}
             </ThemedText>
+            
             <Image source={cardsSourceMap[index]} style={{
                 width: 300,
                 height: 200

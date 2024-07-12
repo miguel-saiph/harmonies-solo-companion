@@ -1,0 +1,37 @@
+import { Text, View, ImageBackground, StyleSheet } from "react-native";
+
+export function ScenarioNumber({number}: {number: number}) {
+
+    return (
+        <View style={styles.main}>
+            <ImageBackground source={require("@/assets/images/number_bg.png")} style={styles.bgImage}>
+                <Text style={styles.text}>
+                    {number}
+                </Text>
+            </ImageBackground>
+        </View>
+    );
+}
+
+const styles = StyleSheet.create({
+    main: {
+        position: 'absolute',
+        alignItems: "flex-end",
+        marginLeft: "auto",
+        left: 7,
+        // top: -1
+    },
+    bgImage: {
+        width: 42,
+        height: 24,
+        resizeMode:'contain',
+        justifyContent: 'center',
+        alignItems: 'center',
+    },
+    text: {
+        fontWeight: 'bold',
+        fontSize: 18,
+        color: '#ffffff',
+        textAlign: 'center'
+    }
+});
