@@ -2,6 +2,7 @@ import { View, StyleSheet, TouchableOpacity, Image, Modal } from "react-native";
 import { ThemedText } from "../ThemedText";
 import { useState } from "react";
 import { CustomModal } from "./Modal";
+import { Credits } from "./Credits";
 
 export function Info() {
     const [modalVisible, setModalVisible] = useState(false);
@@ -32,20 +33,28 @@ export function Info() {
                         <View style={{ flexDirection: 'row' }}>
                             <Image source={require('@/assets/images/medals/bronze-medal.png')} style={styles.medalIcon} />
                             <ThemedText style={styles.modalText}>Bronze (90+ points)</ThemedText>
-                        </View>
-                        <View style={{ flexDirection: 'row' }}>
                             <Image source={require('@/assets/images/medals/silver-medal.png')} style={styles.medalIcon} />
                             <ThemedText style={styles.modalText}>Silver (110+ points)</ThemedText>
                         </View>
+                        {/* <View style={{ flexDirection: 'row' }}>
+                            
+                        </View> */}
                         <View style={{ flexDirection: 'row' }}>
                             <Image source={require('@/assets/images/medals/gold-medal.png')} style={styles.medalIcon} />
                             <ThemedText style={styles.modalText}>Gold (130+ points)</ThemedText>
                         </View>
                     </View>
                     <ThemedText style={styles.modalText}>{'\u2022'} You may use this optional action once per game:</ThemedText>
-                    <View style={{ alignItems: 'center' }}>
-                        <ThemedText style={styles.modalText}>Recycle. After you have drawn the 9 tokens, but before you have taken any of them you can set aside the 9 tokens, draw 9 more tokens and distribute them on the 3 spaces and then put the previous 9 tokens back into the pouch.</ThemedText>
+                    <View style={{}}>
+                        <View style={{ flexDirection: 'row' }}>
+                            <ThemedText style={styles.modalText}>Recycle </ThemedText>
+                            <Image source={require('@/assets/images/recycle.png')} style={styles.medalIcon} />
+                        </View>
+                        <ThemedText style={styles.modalText}>
+                            After you have drawn the 9 tokens, but before you have taken any of them you can set aside the 9 tokens, draw 9 more tokens and distribute them on the 3 spaces and then put the previous 9 tokens back into the pouch.
+                        </ThemedText>
                     </View>
+                    <Credits/>
                 </View>
             }>
             </CustomModal>
@@ -72,8 +81,15 @@ const styles = StyleSheet.create({
         width: 30,
         height: 30
     },
+    recycleIcon: {
+        width: 30,
+        height: 30
+    },
     title: {
         textDecorationLine: 'underline',
         fontSize: 23
+    },
+    credits: {
+        alignSelf: 'flex-end'
     }
 });
