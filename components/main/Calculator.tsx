@@ -3,12 +3,17 @@ import { ThemedText } from "../ThemedText";
 import { useEffect, useState } from "react";
 import { CustomModal } from "./Modal";
 import React from "react";
+import localization from '@/data/Localization.json';
+import { ILoc } from "./Info";
+import { useTaskContext } from "@/hooks/configContext";
 
 export function Calculator({ onScoreSubmitted, updateScore }: { onScoreSubmitted: Function, updateScore: any }) {
     const [modalVisible, setModalVisible] = useState(false);
     const [numbersInput, onAddNumberInput] = React.useState([] as string[]);
     const [total, updateTotal] = React.useState(0);
     let numbers: string[] = new Array(6);
+    const lang = useTaskContext().lang;
+    const texts: ILoc = localization;
 
     useEffect(() => {
         for (let i: number = 0; i < 5; i++) {
@@ -49,12 +54,12 @@ export function Calculator({ onScoreSubmitted, updateScore }: { onScoreSubmitted
             </TouchableOpacity>
             <CustomModal modalVisible={modalVisible} width={'90%'} onRequestClose={setModalVisible} children={
                 <View style={{ alignItems: 'center' }}>
-                    <ThemedText style={[styles.modalText, styles.title]}>Calculator</ThemedText>
+                    <ThemedText style={[styles.modalText, styles.title]}>{texts.calculator_title[lang]}</ThemedText>
                     <View style={{ alignItems: 'center' }}>
                         <View style={{ flexDirection: 'row', paddingTop: 5 }}>
                             <View style={{ flexDirection: 'row', flex: 3 }}>
                                 <Image source={require('@/assets/images/paw.png')} style={{width: 30, height: 35, marginLeft: -10}} />
-                                <ThemedText style={styles.modalText}>Animals</ThemedText>
+                                <ThemedText style={styles.modalText}>{texts.type_animals[lang]}</ThemedText>
                             </View>
                             <View style={{ flex: 1 }}>
                                 <TextInput
@@ -71,7 +76,7 @@ export function Calculator({ onScoreSubmitted, updateScore }: { onScoreSubmitted
                         <View style={{ flexDirection: 'row', paddingTop: 5 }}>
                             <View style={{ flexDirection: 'row', flex: 3 }}>
                                 <Image source={require('@/assets/images/lines/line_grass.png')} style={styles.lineIcon} />
-                                <ThemedText style={styles.modalText}>Trees</ThemedText>
+                                <ThemedText style={styles.modalText}>{texts.type_trees[lang]}</ThemedText>
                             </View>
                             <View style={{ flex: 1 }}>
                                 <TextInput
@@ -87,7 +92,7 @@ export function Calculator({ onScoreSubmitted, updateScore }: { onScoreSubmitted
                         <View style={{ flexDirection: 'row', paddingTop: 5 }}>
                             <View style={{ flexDirection: 'row', flex: 3 }}>
                                 <Image source={require('@/assets/images/lines/line_rock.png')} style={styles.lineIcon} />
-                                <ThemedText style={styles.modalText}>Mountains</ThemedText>
+                                <ThemedText style={styles.modalText}>{texts.type_mountains[lang]}</ThemedText>
                             </View>
                             <View style={{ flex: 1 }}>
                                 <TextInput
@@ -104,7 +109,7 @@ export function Calculator({ onScoreSubmitted, updateScore }: { onScoreSubmitted
                         <View style={{ flexDirection: 'row', paddingTop: 5 }}>
                             <View style={{ flexDirection: 'row', flex: 3 }}>
                                 <Image source={require('@/assets/images/lines/line_land.png')} style={styles.lineIcon} />
-                                <ThemedText style={styles.modalText}>Fields</ThemedText>
+                                <ThemedText style={styles.modalText}>{texts.type_fields[lang]}</ThemedText>
                             </View>
                             <View style={{ flex: 1 }}>
                                 <TextInput
@@ -121,7 +126,7 @@ export function Calculator({ onScoreSubmitted, updateScore }: { onScoreSubmitted
                         <View style={{ flexDirection: 'row', paddingTop: 5 }}>
                             <View style={{ flexDirection: 'row', flex: 3 }}>
                                 <Image source={require('@/assets/images/lines/line_constru.png')} style={styles.lineIcon} />
-                                <ThemedText style={styles.modalText}>Buildings</ThemedText>
+                                <ThemedText style={styles.modalText}>{texts.type_buildings[lang]}</ThemedText>
                             </View>
                             <View style={{ flex: 1 }}>
                                 <TextInput
@@ -138,7 +143,7 @@ export function Calculator({ onScoreSubmitted, updateScore }: { onScoreSubmitted
                         <View style={{ flexDirection: 'row', paddingTop: 5 }}>
                             <View style={{ flexDirection: 'row', flex: 3 }}>
                                 <Image source={require('@/assets/images/lines/line_water.png')} style={styles.lineIcon} />
-                                <ThemedText style={styles.modalText}>Water</ThemedText>
+                                <ThemedText style={styles.modalText}>{texts.type_water[lang]}</ThemedText>
                             </View>
                             <View style={{ flex: 1 }}>
                                 <TextInput

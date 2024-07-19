@@ -6,6 +6,7 @@ export interface IStorageData {
     version: number;
     scenarios: IScenarioData[];
     lastScenario: number;
+    currentLang: string;
 }
 
 export interface IScenarioData {
@@ -47,7 +48,8 @@ export default class DataManager {
             audio: true,
             version: this.dataVersion,
             scenarios: [],
-            lastScenario: 0
+            lastScenario: 0,
+            currentLang: 'en'
         };
         for (let i: number = 0; i < data.scenarios.length; i++) {
             this.storageData.scenarios.push({ id: i, highscore: 0 });   
@@ -127,6 +129,16 @@ export default class DataManager {
 
     public getTotalGoldMedals(): number {
         return this.storageData.scenarios.length;
+    }
+
+    public getCurrentLang(): string {
+        return this.storageData.currentLang;
+    }
+
+    public setCurrentLanguage(lang: string): void {
+        console.log('set current langua: ', lang);
+        this.storageData.currentLang = lang;
+        this.saveData(this.storageData);
     }
 
 

@@ -14,7 +14,8 @@ import 'react-native-reanimated';
 import { useColorScheme } from '@/hooks/useColorScheme';
 // import MainScreen from "./main";
 import Carousel from "./carousel";
-import {StatusBar} from "expo-status-bar";
+import { StatusBar } from "expo-status-bar";
+import { ConfigProvider } from "@/hooks/configContext";
 
 // Prevent the splash screen from auto-hiding before asset loading is complete.
 SplashScreen.preventAutoHideAsync();
@@ -37,22 +38,25 @@ export default function Index() {
     }
 
     return (
-        <Stack.Navigator>
-            <Stack.Screen
-                name="Home"
-                component={HomeScreen}
-                options={{ headerShown: false }}
-            />
-            {/* <Stack.Screen
+        <ConfigProvider>
+            <Stack.Navigator>
+                <Stack.Screen
+                    name="Home"
+                    component={HomeScreen}
+                    options={{ headerShown: false }}
+                />
+                {/* <Stack.Screen
                 name="Main"
                 component={MainScreen}
                 options={{ headerShown: false }}
             /> */}
-            <Stack.Screen
-                name="Carousel"
-                component={Carousel}
-                options={{ headerShown: false }}
-            />
-        </Stack.Navigator>
+                <Stack.Screen
+                    name="Carousel"
+                    component={Carousel}
+                    options={{ headerShown: false }}
+                />
+            </Stack.Navigator>
+        </ConfigProvider>
+
     );
 }

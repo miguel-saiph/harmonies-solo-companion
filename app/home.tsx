@@ -1,14 +1,18 @@
 import PressableOpacity from "@/components/PressableAnimation";
 import DataManager from "@/data/DataManager";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { Image, Animated, SafeAreaView, ImageBackground } from 'react-native';
 import {StatusBar} from "expo-status-bar";
+import { useTaskContext } from "@/hooks/configContext";
 
 export default function HomeScreen({navigation}: any) {
+    const [config] = useState(useTaskContext());
 
     useEffect(() => {
         DataManager.init();
         DataManager.instance.getHighscore(1);
+        console.log('current lang: ', DataManager.instance.getCurrentLang())
+        config.setLang(DataManager.instance.getCurrentLang());
     }, []);
 
     const onPress = () => {

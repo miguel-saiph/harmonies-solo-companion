@@ -10,6 +10,9 @@ import { ImageSourcePropType, TouchableOpacity, View, Modal, StyleSheet, TextInp
 import { Image } from 'react-native';
 import { CustomModal } from "./Modal";
 import { Calculator} from "./Calculator";
+import localization from '@/data/Localization.json';
+import { ILoc } from "./Info";
+import { useTaskContext } from "@/hooks/configContext";
 
 const cardsSourceMap: ImageSourcePropType[] = [
     require("@/assets/images/cards/sc1.png"),
@@ -42,6 +45,8 @@ export default function Card({ scenario, index, callback }: { scenario: IScenari
     const [modalVisible, setModalVisible] = useState(false);
     const [number, onChangeNumber] = React.useState('');
     const [highscore, onChangeHighscore] = React.useState(0);
+    const lang = useTaskContext().lang;
+    const texts: ILoc = localization;
 
     const onScoreSubmitted = (): void => {
         if (parseInt(number) > highscore) {
@@ -116,7 +121,7 @@ export default function Card({ scenario, index, callback }: { scenario: IScenari
                 <CustomModal modalVisible={modalVisible} width={'75%'} height={'50%'} onRequestClose={setModalVisible}
                     children={
                         <View style={{alignItems: 'center'}}>
-                            <ThemedText style={styles.modalText}>Type your new score:</ThemedText>
+                            <ThemedText style={styles.modalText}>{texts.submit_title[lang]}</ThemedText>
                                 <TextInput
                                     style={styles.input}
                                     keyboardType="numeric"
