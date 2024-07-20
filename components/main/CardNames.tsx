@@ -1,12 +1,13 @@
 import { StyleSheet, View, Image, Text, ImageSourcePropType } from 'react-native';
 import { ThemedText } from '@/components/ThemedText';
+import { useTaskContext } from "@/hooks/configContext";
 
 export const enum MapType {
     A, B
 }
 
 export interface IAnimalInfo {
-    name: string,
+    name: { [lang: string]: string },
     type: string
 }
 
@@ -19,6 +20,8 @@ const typeMap: {[key: string]: ImageSourcePropType} = {
 }
 
 export function CardNames({ animals, mapType }: { animals: IAnimalInfo[], mapType: MapType }) {
+    const lang = useTaskContext().lang;
+
     return (
         <View style={{
             display: 'flex',
@@ -37,7 +40,7 @@ export function CardNames({ animals, mapType }: { animals: IAnimalInfo[], mapTyp
                             {/* {index === 0 ? <Text style={{marginLeft: -110}}>{''}</Text> : null} */}
                             <Image source={typeMap[animal.type]} style={styles.lineImage} />
                             <ThemedText style={styles.text}>
-                                {animal.name}
+                                {animal.name[lang]}
                             </ThemedText>
                         </View>
                     )

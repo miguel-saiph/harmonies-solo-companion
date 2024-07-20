@@ -83,7 +83,7 @@ export default function Card({ scenario, index, callback }: { scenario: IScenari
                 color: nameColorMap[scenario.type],
                 paddingTop: 25,
             }}>
-                {scenario.name}
+                {scenario.name[lang]}
             </ThemedText>
             
             <Image source={cardsSourceMap[index]} style={{

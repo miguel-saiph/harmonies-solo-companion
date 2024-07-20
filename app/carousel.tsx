@@ -21,7 +21,7 @@ import { MedalsCount } from '@/components/main/MedalsCount';
 import { ScenarioNumber } from '@/components/main/ScenarioNumber';
 
 export interface IScenario {
-    name: string,
+    name: { [lang: string]: string },
     type: string,
     animals: IAnimalInfo[],
     map: number

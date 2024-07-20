@@ -1,148 +1,319 @@
 {
     "scenarios": [
         {
-            "name": "Air, Land and Sea",
+            "name": {
+                "en": "Air, Land and Sea",
+                "es": "Aire, Tierra y Mar"
+            },
             "type": "rock",
             "animals": [
-                { "name": "Vulture", "type": "rock" },
-                { "name": "Wolf", "type": "grass" },
-                { "name": "Fish", "type": "water" }
+                { "name": {
+                    "en": "Vulture",
+                    "es": "Buitre"
+                }, "type": "rock" },
+                { "name": {
+                    "en": "Wolf",
+                    "es": "Lobo"
+                }, "type": "grass" },
+                { "name": {
+                    "en": "Fish",
+                    "es": "Pez"
+                }, "type": "water" }
             ],
             "map": 0
         },
         {
-            "name": "Wingspan",
+            "name": {
+                "en": "Wingspan",
+                "es": "Wingspan"
+            },
             "type": "constru",
             "animals": [
-                { "name": "Raven", "type": "land" },
-                { "name": "Duck", "type": "water" },
-                { "name": "Peacock", "type": "constru" }
+                { "name": {
+                    "en": "Raven",
+                    "es": "Cuervo"
+                }, "type": "land" },
+                { "name": {
+                    "en": "Duck",
+                    "es": "Pato"
+                }, "type": "water" },
+                { "name": {
+                    "en": "Peacock",
+                    "es": "Pavo Real"
+                }, "type": "constru" }
             ],
             "map": 1
         },
         {
-            "name": "Up in the Trees",
+            "name": {
+                "en": "Up in the Trees",
+                "es": "Arriba en los arboles"
+            },
             "type": "grass",
             "animals": [
-                { "name": "Koala", "type": "grass" },
-                { "name": "Panther", "type": "land" },
-                { "name": "Snow Fox", "type": "land" }
+                { "name": {
+                    "en": "Koala",
+                    "es": "Koala"
+                }, "type": "grass" },
+                { "name": {
+                    "en": "Panther",
+                    "es": "Pantera"
+                }, "type": "land" },
+                { "name": {
+                    "en": "Snow Fox",
+                    "es": "Zorro de nieve"
+                }, "type": "land" }
             ],
             "map": 0
         },
         {
-            "name": "Mixed Bag",
+            "name": {
+                "en": "Mixed Bag",
+                "es": "Bolsa Mixta"
+            },
             "type": "constru",
             "animals": [
-                { "name": "Alpaca", "type": "land" },
-                { "name": "Bat", "type": "rock" },
-                { "name": "Squirrel", "type": "constru" }
+                { "name": {
+                    "en": "Alpaca",
+                    "es": "Alpaca"
+                }, "type": "land" },
+                { "name": {
+                    "en": "Bat",
+                    "es": "Murcielago"
+                }, "type": "rock" },
+                { "name": {
+                    "en": "Squirrel",
+                    "es": "Ardilla"
+                }, "type": "constru" }
             ],
             "map": 1
         },
         {
-            "name": "The Sky is the Limit",
+            "name": {
+                "en": "The Sky is the Limit",
+                "es": "El Cielo es el Limite"
+            },
             "type": "water",
             "animals": [],
             "map": 0
         },
         {
-            "name": "Welcome to the Jungle",
+            "name": {
+                "en": "Welcome to the Jungle",
+                "es": "Bienvenido a la Jungla"
+            },
             "type": "grass",
             "animals": [
-                { "name": "Dragonfly", "type": "water" },
-                { "name": "Parrot", "type": "grass" },
-                { "name": "Frog", "type": "water" }
+                { "name": {
+                    "en": "Dragonfly",
+                    "es": "Libelula"
+                }, "type": "water" },
+                { "name": {
+                    "en": "Parrot",
+                    "es": "Loro"
+                }, "type": "grass" },
+                { "name": {
+                    "en": "Frog",
+                    "es": "Rana"
+                }, "type": "water" }
             ],
             "map": 1
         },
         {
-            "name": "Calm Mountains",
+            "name": {
+                "en": "Calm Mountains",
+                "es": "Montes Tranquilos"
+            },
             "type": "rock",
             "animals": [
-                { "name": "Capricorn", "type": "rock" },
-                { "name": "Baboon", "type": "rock" },
-                { "name": "Bear", "type": "grass" }
+                { "name": {
+                    "en": "Capricorn",
+                    "es": "Capricornio"
+                }, "type": "rock" },
+                { "name": {
+                    "en": "Baboon",
+                    "es": "Babuino"
+                }, "type": "rock" },
+                { "name": {
+                    "en": "Bear",
+                    "es": "Oso"
+                }, "type": "grass" }
             ],
             "map": 0
         },
         {
-            "name": "Islands in the Sun",
+            "name": {
+                "en": "Islands in the Sun",
+                "es": "Islas en el Sol"
+            },
             "type": "water",
             "animals": [
-                { "name": "Butterfly", "type": "land" },
-                { "name": "Racoon", "type": "land" },
-                { "name": "Flamingo", "type": "water" }
+                { "name": {
+                    "en": "Butterfly",
+                    "es": "Mariposa"
+                }, "type": "land" },
+                { "name": {
+                    "en": "Racoon",
+                    "es": "Mapache"
+                }, "type": "land" },
+                { "name": {
+                    "en": "Flamingo",
+                    "es": "Flamenco"
+                }, "type": "water" }
             ],
             "map": 1
         },
         {
-            "name": "Town in the Woods",
+            "name": {
+                "en": "Town in the Woods",
+                "es": "Ciudad en el Bosque"
+            },
             "type": "grass",
             "animals": [
-                { "name": "Cat", "type": "constru" },
-                { "name": "Hedgehog", "type": "constru" },
-                { "name": "Boar", "type": "grass" }
+                { "name": {
+                    "en": "Cat",
+                    "es": "Gato"
+                }, "type": "constru" },
+                { "name": {
+                    "en": "Hedgehog",
+                    "es": "Erizo"
+                }, "type": "constru" },
+                { "name": {
+                    "en": "Boar",
+                    "es": "Jabali"
+                }, "type": "grass" }
             ],
             "map": 0
         },
         {
-            "name": "Lush Green",
+            "name": {
+                "en": "Lush Green",
+                "es": "Verde Exhuberante"
+            },
             "type": "grass",
             "animals": [
-                { "name": "Owl", "type": "grass" },
-                { "name": "Rabbit", "type": "grass" },
-                { "name": "Otter", "type": "water" }
+                { "name": {
+                    "en": "Owl",
+                    "es": "Buho"
+                }, "type": "grass" },
+                { "name": {
+                    "en": "Rabbit",
+                    "es": "Liebre"
+                }, "type": "grass" },
+                { "name": {
+                    "en": "Otter",
+                    "es": "Nutria"
+                }, "type": "water" }
             ],
             "map": 1
         },
         {
-            "name": "Hiding in the Rubble",
+            "name": {
+                "en": "Hiding in the Rubble",
+                "es": "Escondido entre los Escombros"
+            },
             "type": "rock",
             "animals": [
-                { "name": "Marmot", "type": "rock" },
-                { "name": "Desert Fox", "type": "rock" },
-                { "name": "Meerkat", "type": "rock" }
+                { "name": {
+                    "en": "Marmot",
+                    "es": "Marmota"
+                }, "type": "rock" },
+                { "name": {
+                    "en": "Desert Fox",
+                    "es": "Zorro fennec"
+                }, "type": "rock" },
+                { "name": {
+                    "en": "Meerkat",
+                    "es": "Suricata"
+                }, "type": "rock" }
             ],
             "map": 0
         },
         {
-            "name": "Fields of Gold",
+            "name": {
+                "en": "Fields of Gold",
+                "es": "Campos de Oro"
+            },
             "type": "grass",
             "animals": [
-                { "name": "Lion", "type": "land" },
-                { "name": "Bumblebee", "type": "grass" },
-                { "name": "Ladybug", "type": "land" }
+                { "name": {
+                    "en": "Lion",
+                    "es": "Leon"
+                }, "type": "land" },
+                { "name": {
+                    "en": "Bumblebee",
+                    "es": "Abejorro"
+                }, "type": "grass" },
+                { "name": {
+                    "en": "Ladybug",
+                    "es": "Mariquita"
+                }, "type": "land" }
             ],
             "map": 1
         },
         {
-            "name": "Alternative Reality Amazonas",
+            "name": {
+                "en": "Alternative Reality Amazonas",
+                "es": "Amazonas Realidad Alterna"
+            },
             "type": "water",
             "animals": [
-                { "name": "Deer", "type": "grass" },
-                { "name": "Crocodile", "type": "water" },
-                { "name": "Kingfisher", "type": "grass" }
+                { "name": {
+                    "en": "Deer",
+                    "es": "Ciervo"
+                }, "type": "grass" },
+                { "name": {
+                    "en": "Crocodile",
+                    "es": "Cocodrilo"
+                }, "type": "water" },
+                { "name": {
+                    "en": "Kingfisher",
+                    "es": "Martinpescador"
+                }, "type": "grass" }
             ],
             "map": 0
         },
         {
-            "name": "Splish Splash Water-home",
+            "name": {
+                "en": "Splish Splash Water-home",
+                "es": "Chapoteo en el Hogar de Agua"
+            },
             "type": "rock",
             "animals": [
-                { "name": "Tortoise", "type": "water" },
-                { "name": "Ray", "type": "water" },
-                { "name": "Penguin", "type": "rock" }
+                { "name": {
+                    "en": "Tortoise",
+                    "es": "Tortuga"
+                }, "type": "water" },
+                { "name": {
+                    "en": "Ray",
+                    "es": "Manta raya"
+                }, "type": "water" },
+                { "name": {
+                    "en": "Penguin",
+                    "es": "Pingüino"
+                }, "type": "rock" }
             ],
             "map": 1
         },
         {
-            "name": "Dorfromantik",
+            "name": {
+                "en": "Dorfromantik",
+                "es": "Dorfromantik"
+            },
             "type": "constru",
             "animals": [
-                { "name": "Stork", "type": "constru" },
-                { "name": "Mouse", "type": "constru" },
-                { "name": "Lizard", "type": "constru" }
+                { "name": {
+                    "en": "Stork",
+                    "es": "Cigüena"
+                }, "type": "constru" },
+                { "name": {
+                    "en": "Mouse",
+                    "es": "Raton"
+                }, "type": "constru" },
+                { "name": {
+                    "en": "Lizard",
+                    "es": "Lagarto"
+                }, "type": "constru" }
             ],
             "map": 0
         }
