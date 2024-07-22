@@ -77,11 +77,12 @@ export default function Card({ scenario, index, callback }: { scenario: IScenari
             borderRadius: 20,
             opacity: .9
         }}>
-            <ThemedText style={{
+            <ThemedText adjustsFontSizeToFit={true} numberOfLines={1} style={{
                 fontFamily: 'VixarASCI',
                 fontSize: 35,
                 color: nameColorMap[scenario.type],
                 paddingTop: 25,
+                maxWidth: 260
             }}>
                 {scenario.name[lang]}
             </ThemedText>
@@ -116,7 +117,7 @@ export default function Card({ scenario, index, callback }: { scenario: IScenari
                     }}
                     style={styles.appButtonContainer}
                 >
-                    <ThemedText style={styles.appButtonText} >Submit</ThemedText>
+                    <ThemedText adjustsFontSizeToFit={true} numberOfLines={1} style={styles.appButtonText} > {texts.button_submit[lang]} </ThemedText>
                 </TouchableOpacity>
                 <CustomModal modalVisible={modalVisible} width={'75%'} height={'50%'} onRequestClose={setModalVisible}
                     children={
@@ -155,7 +156,8 @@ const styles = StyleSheet.create({
         borderRadius: 360,
         paddingVertical: 10,
         paddingHorizontal: 10,
-        marginBottom: 50
+        marginBottom: 50,
+        maxWidth: 80
     },
     appButtonText: {
         fontFamily: 'VixarASCI',
@@ -184,11 +186,12 @@ const styles = StyleSheet.create({
     },
     input: {
         height: 50,
-        width: 50,
+        width: 70,
         margin: 10,
         borderWidth: 1,
         borderRadius: 5,
         padding: 15,
+        textAlign: 'center'
     },
     inputButton: {
         backgroundColor: "#009688",

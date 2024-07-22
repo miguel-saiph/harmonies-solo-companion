@@ -81,6 +81,7 @@ export function Calculator({ onScoreSubmitted, updateScore }: { onScoreSubmitted
                             <View style={{ flex: 1 }}>
                                 <TextInput
                                     style={styles.input}
+                                    keyboardType="numeric"
                                     onChangeText={(number) => onChangeNumber(number, 1)}
                                     onEndEditing={() => addNumber(numbersInput[1])}
                                     value={numbers[1]}

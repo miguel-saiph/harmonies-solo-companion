@@ -37,39 +37,43 @@ export function Info() {
                     height: 30,
                 }} />
             </TouchableOpacity>
-            <CustomModal modalVisible={modalVisible} width={'90%'} onRequestClose={setModalVisible} children={
-                <View>
-                    <ThemedText style={[styles.modalText, styles.title]}>{texts.info_title[lang]} </ThemedText>
-                    <ThemedText style={styles.modalText}> {texts.info_p1[lang]} </ThemedText>
-                    <ThemedText style={styles.modalText}>{'\u2022'} {texts.info_p2[lang]} </ThemedText>
-                    <ThemedText style={styles.modalText}>{'\u2022'} {texts.info_p3[lang]}</ThemedText>
-                    <ThemedText style={styles.modalText}>{'\u2022'} {texts.info_p4[lang]} </ThemedText>
+            <CustomModal modalVisible={modalVisible} width={'90%'} height={'95%'} onRequestClose={setModalVisible} children={
+                <View style={{flex: 1}}>
+                    <ThemedText adjustsFontSizeToFit={true} numberOfLines={1} style={[styles.modalText, styles.title]}>{texts.info_title[lang]} </ThemedText>
+                    <ThemedText adjustsFontSizeToFit={true} numberOfLines={2} style={styles.modalText}> {texts.info_p1[lang]} </ThemedText>
+                    <ThemedText adjustsFontSizeToFit={true} numberOfLines={2} style={styles.modalText}>{'\u2022'} {texts.info_p2[lang]} </ThemedText>
+                    <ThemedText adjustsFontSizeToFit={true} numberOfLines={1} style={styles.modalText}>{'\u2022'} {texts.info_p3[lang]}</ThemedText>
+                    <ThemedText adjustsFontSizeToFit={true} numberOfLines={2} style={styles.modalText}>{'\u2022'} {texts.info_p4[lang]} </ThemedText>
                     <View style={{ alignItems: 'center' }}>
                         <View style={{ flexDirection: 'row' }}>
                             <Image source={require('@/assets/images/medals/bronze-medal.png')} style={styles.medalIcon} />
-                            <ThemedText style={styles.modalText}>{texts.info_bronze[lang]} (90+ {texts.info_points[lang]})</ThemedText>
+                            <ThemedText adjustsFontSizeToFit={true} style={styles.modalText}>{texts.info_bronze[lang]} (90+ {texts.info_points[lang]})</ThemedText>
                             <Image source={require('@/assets/images/medals/silver-medal.png')} style={styles.medalIcon} />
-                            <ThemedText style={styles.modalText}>{texts.info_silver[lang]} (110+ {texts.info_points[lang]})</ThemedText>
+                            <ThemedText adjustsFontSizeToFit={true} style={styles.modalText}>{texts.info_silver[lang]} (110+ {texts.info_points[lang]})</ThemedText>
                         </View>
                         <View style={{ flexDirection: 'row' }}>
                             <Image source={require('@/assets/images/medals/gold-medal.png')} style={styles.medalIcon} />
-                            <ThemedText style={styles.modalText}>{texts.info_gold[lang]} (130+ {texts.info_points[lang]})</ThemedText>
+                            <ThemedText adjustsFontSizeToFit={true} style={styles.modalText}>{texts.info_gold[lang]} (130+ {texts.info_points[lang]})</ThemedText>
                         </View>
                     </View>
-                    <ThemedText style={styles.modalText}>{'\u2022'} {texts.info_optional[lang]}</ThemedText>
+                    <ThemedText adjustsFontSizeToFit={true} style={styles.modalText}>{'\u2022'} {texts.info_optional[lang]}</ThemedText>
                     <View style={{}}>
                         <View style={{ flexDirection: 'row' }}>
-                            <ThemedText style={styles.modalText}>{texts.info_recycle[lang]} </ThemedText>
+                            <ThemedText adjustsFontSizeToFit={true} style={styles.modalText}>{texts.info_recycle[lang]} </ThemedText>
                             <Image source={require('@/assets/images/recycle.png')} style={styles.medalIcon} />
                         </View>
-                        <ThemedText style={styles.modalText}>
+                        <ThemedText adjustsFontSizeToFit={true} style={styles.modalText}>
                         {texts.info_recycle_desc[lang]}
                         </ThemedText>
                     </View>
-                    <View style={styles.bottomContainer}>
-                        <LanguagePicker/>
-                        <Credits/>
+                    
+                    <View style={styles.footer}>
+                        <View style={styles.bottomContainer}>
+                            <LanguagePicker/>
+                            <Credits/>
+                        </View>
                     </View>
+                    
                     
                 </View>
             }>
@@ -84,10 +88,10 @@ const styles = StyleSheet.create({
         fontSize: 30,
         color: '#000',
         paddingTop: 5,
-        marginLeft: 10,
+        marginLeft: 5,
     },
     modalText: {
-        marginBottom: 5,
+        marginBottom: 2,
         fontSize: 20,
         fontFamily: 'VixarASCI',
         color: "black",
@@ -108,5 +112,9 @@ const styles = StyleSheet.create({
     bottomContainer: {
         flexDirection: 'row',
         justifyContent: 'space-between',
+    },
+    footer: {
+        flex: 1,
+        justifyContent: 'flex-end',
     }
 });

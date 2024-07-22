@@ -39,8 +39,7 @@ export default class DataManager {
         DataManager._instance = this;
         this.initData();
         this.loadData();
-        console.log('[DataManager] storageData: ' +JSON.stringify(this.storageData));
-        // console.log('[DataManager] localData: ' +JSON.stringify(this.localData));
+        // console.log('[DataManager] storageData: ' +JSON.stringify(this.storageData));
     }
 
     private initData(): void {
@@ -136,7 +135,6 @@ export default class DataManager {
     }
 
     public setCurrentLanguage(lang: string): void {
-        console.log('set current langua: ', lang);
         this.storageData.currentLang = lang;
         this.saveData(this.storageData);
     }

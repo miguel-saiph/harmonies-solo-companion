@@ -37,7 +37,7 @@
     },
     "info_optional": {
         "en": "You may use this optional action once per game:",
-        "es": "Puedes usar la siguiente acción opcional una vez por juego"
+        "es": "Puedes usar la siguiente accion opcional una vez por juego"
     },
     "info_recycle": {
         "en": "Recycle",
@@ -74,6 +74,10 @@
     "calculator_title": {
         "en": "Calculator",
         "es": "Calculadora"
+    },
+    "button_submit": {
+        "en": "Submit",
+        "es": "Registrar"
     },
     "type_animals": {
         "en": "Animals",
