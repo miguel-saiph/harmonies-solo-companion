@@ -1,6 +1,6 @@
 # Harmonies Unnoficial Solo Campaign
 
-Companion app for the unnoficial campaign created by [lovelace](https://boardgamegeek.com/filepage/278347/melodies-solo-scenarios) for the board game **Harmonies**.
+Companion app for the unnoficial campaign created by [lovelace](https://boardgamegeek.com/filepage/278347/melodies-solo-scenarios) for the board game [Harmonies](https://www.libellud.com/en/our-games/harmonies/). 
 
 It helps you by saving your highscore for each of the 15 scenarios.
 
@@ -18,6 +18,10 @@ It helps you by saving your highscore for each of the 15 scenarios.
 ## Download
 
 Only available for Android. Download the apk [here](https://github.com/miguel-saiph/harmonies-solo-companion/releases/tag/v.1.0.0)
+
+## Disclaimer
+
+This is an unofficial app developed as a private project and is not affiliated with Libellud.
 
 ---
 
