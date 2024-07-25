@@ -17,10 +17,8 @@ It helps you by saving your highscore for each of the 15 scenarios.
 
 ## Download
 
-Download the apk [here](https://github.com/miguel-saiph/harmonies-solo-companion/releases/tag/v.1.0.0)
+Only available for Android. Download the apk [here](https://github.com/miguel-saiph/harmonies-solo-companion/releases/tag/v.1.0.0)
 
 ---
 
 Developed in React Native (TypeScript)
-
-Android only.
