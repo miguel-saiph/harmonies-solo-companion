@@ -11,7 +11,7 @@ The web version is available [here](https://miguel-saiph.github.io/harmonies-sol
 ## Features
 
 * Access to the 15 scenarios by swiping left or right.
-* Show the requisites and saves the highscore of each scenario.
+* Show the requisites and saves the highscore (and only the highscores) of each scenario.
 * Earn medals upon reaching certain scores.
 * Show general instructions for getting a valid score.
 * Has a calculator to add up the total score of a game.
@@ -19,12 +19,14 @@ The web version is available [here](https://miguel-saiph.github.io/harmonies-sol
 
 ## Download
 
-Only available for Android and [web](https://miguel-saiph.github.io/harmonies-solo-companion/). Download the apk [here](https://github.com/miguel-saiph/harmonies-solo-companion/releases/tag/v.1.0.0)
+You can download the android apk [here](https://github.com/miguel-saiph/harmonies-solo-companion/releases/tag/v.1.0.0).
+
+The web version is available [here](https://miguel-saiph.github.io/harmonies-solo-companion/).
 
 ## Disclaimer
 
 This is an unofficial app developed as a private project and is not affiliated with Libellud.
 
----
+## Development
 
-Developed in React Native (TypeScript)
+Developed in React Native (TypeScript) with Expo.
