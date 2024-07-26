@@ -1,4 +1,4 @@
-import { View, StyleSheet, DimensionValue } from "react-native";
+import { View, StyleSheet, DimensionValue, Platform, useWindowDimensions } from "react-native";
 import { Modal } from "react-native";
 import { CloseButton } from "./CloseButton";
 
@@ -11,7 +11,8 @@ interface Props {
 }
 
 export function CustomModal({ children, modalVisible, onRequestClose, width = 'auto', height = 'auto' }: Props) {
-
+    const { width: windowWidth } = useWindowDimensions();
+    
     return (
         <Modal
             animationType="fade"
@@ -21,7 +22,7 @@ export function CustomModal({ children, modalVisible, onRequestClose, width = 'a
                 onRequestClose(!modalVisible)
             }}>
             <View style={styles.centeredView}>
-                <View style={[styles.modalView, { width: width, height: height }]}>
+                <View style={[styles.modalView, { width: Platform.OS === 'web' && windowWidth > 500 ? 500 : width, height: height }]}>
                     <CloseButton onRequestClose={onRequestClose}/>
                     {children}
                 </View>

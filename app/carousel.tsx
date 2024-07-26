@@ -10,7 +10,8 @@ import {
     Animated,
     useWindowDimensions,
     TouchableOpacity,
-    Image
+    Image,
+    Platform
 } from 'react-native';
 
 import data from '@/data/CardsData.json';
@@ -80,7 +81,7 @@ export default function Carousel({ navigation }: any) {
                 <View style={styles.scrollContainer}>
                     <ScrollView
                         ref={refScrollView}
-                        horizontal={true}
+                        horizontal={Platform.OS !== 'web' ? true : false}
                         pagingEnabled
                         contentOffset={
                             {
@@ -88,7 +89,9 @@ export default function Carousel({ navigation }: any) {
                                 y: 0
                             }
                         }
-                        showsHorizontalScrollIndicator={false}
+                        // showsHorizontalScrollIndicator={true}
+                        showsVerticalScrollIndicator={Platform.OS !== 'web' ? false : true}
+                        persistentScrollbar={Platform.OS !== 'web' ? false : true}
                         onScroll={
                             Animated.event([
                             {
@@ -188,7 +191,8 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         alignItems: 'center',
         justifyContent: 'center',
-        marginBottom: -8
+        marginBottom: -8,
+        display: Platform.OS === 'web' ? 'none' : 'flex'
     },
 });
 

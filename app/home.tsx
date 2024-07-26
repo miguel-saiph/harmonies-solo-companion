@@ -1,7 +1,7 @@
 import PressableOpacity from "@/components/PressableAnimation";
 import DataManager from "@/data/DataManager";
 import { useEffect, useState } from "react";
-import { Image, Animated, SafeAreaView, ImageBackground } from 'react-native';
+import { StyleSheet, SafeAreaView, ImageBackground, Platform } from 'react-native';
 import {StatusBar} from "expo-status-bar";
 import { useTaskContext } from "@/hooks/configContext";
 
@@ -37,10 +37,18 @@ export default function HomeScreen({navigation}: any) {
                        hidden={false}
             />
             <PressableOpacity children={
-                <ImageBackground source={require('@/assets/images/title.png')} style={{ width: '100%', height: '100%' }} resizeMode={"cover"} />
+                <ImageBackground source={require('@/assets/images/title.png')} style={styles.cover} resizeMode={"cover"} />
                 
             } onPress={onPress} navigation={navigation} />
             
         </SafeAreaView>
     );
 }
+
+const styles = StyleSheet.create({
+    cover: {
+        width: Platform.OS !== 'web' ? '100%' : 1080 * 0.35, 
+        height: Platform.OS !== 'web' ? '100%' : 1920 * 0.35,
+        alignSelf: 'center'
+    }
+});

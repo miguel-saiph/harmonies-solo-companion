@@ -1,4 +1,4 @@
-import { StyleSheet, View, Image, Text, ImageSourcePropType } from 'react-native';
+import { StyleSheet, View, Image, Text, ImageSourcePropType, Platform } from 'react-native';
 import { ThemedText } from '@/components/ThemedText';
 import { useTaskContext } from "@/hooks/configContext";
 
@@ -28,7 +28,7 @@ export function CardNames({ animals, mapType }: { animals: IAnimalInfo[], mapTyp
             flexDirection: 'row'
         }}>
             <View style={{
-                flex: 4,
+                flex: Platform.OS !== 'web' ? 4 : 8,
                 marginLeft: -40,
                 paddingTop: 10,
                 flexDirection: 'column',

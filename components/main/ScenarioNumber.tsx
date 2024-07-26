@@ -1,10 +1,13 @@
-import { Text, View, ImageBackground, StyleSheet } from "react-native";
+import { Text, View, ImageBackground, StyleSheet, useWindowDimensions, Platform } from "react-native";
 
 export function ScenarioNumber({number}: {number: number}) {
+    const { width: windowWidth, height: windowHeight } = useWindowDimensions();
 
     return (
         <View style={styles.main}>
-            <ImageBackground source={require("@/assets/images/number_bg.png")} style={styles.bgImage}>
+            <ImageBackground source={require("@/assets/images/number_bg.png")} style={[styles.bgImage,
+                {left: Platform.OS === 'web' && windowWidth > 500 ? 500 : 7}
+            ]}>
                 <Text style={styles.text}>
                     {number}
                 </Text>

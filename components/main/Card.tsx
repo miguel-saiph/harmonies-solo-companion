@@ -6,7 +6,7 @@ import { Medal, MedalType } from "@/components/main/Medal";
 import DataManager from "@/data/DataManager";
 import React, { useEffect } from "react";
 import { useState } from "react";
-import { ImageSourcePropType, TouchableOpacity, View, Modal, StyleSheet, TextInput } from "react-native";
+import { ImageSourcePropType, TouchableOpacity, View, Modal, StyleSheet, TextInput, Platform, useWindowDimensions } from "react-native";
 import { Image } from 'react-native';
 import { CustomModal } from "./Modal";
 import { Calculator} from "./Calculator";
@@ -45,6 +45,7 @@ export default function Card({ scenario, index, callback }: { scenario: IScenari
     const [modalVisible, setModalVisible] = useState(false);
     const [number, onChangeNumber] = React.useState('');
     const [highscore, onChangeHighscore] = React.useState(0);
+    const { width: windowWidth } = useWindowDimensions();
     const lang = useTaskContext().lang;
     const texts: ILoc = localization;
 
@@ -64,8 +65,8 @@ export default function Card({ scenario, index, callback }: { scenario: IScenari
 
     return (
         <View style={{
-            width: '90%',
-            height: '90%',
+            width: Platform.OS === 'web' && windowWidth > 500 ? 500 : '90%',
+            height: '43%',
             backgroundColor: '#e5d8c4',
             alignSelf: 'center',
             alignItems: "center",
@@ -82,7 +83,8 @@ export default function Card({ scenario, index, callback }: { scenario: IScenari
                 fontSize: 35,
                 color: nameColorMap[scenario.type],
                 paddingTop: 25,
-                maxWidth: 260
+                maxWidth: 260,
+                minHeight: 50
             }}>
                 {scenario.name[lang]}
             </ThemedText>
