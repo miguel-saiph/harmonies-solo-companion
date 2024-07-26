@@ -19,7 +19,7 @@ The web version is available [here](https://miguel-saiph.github.io/harmonies-sol
 
 ## Download
 
-Only available for Android. Download the apk [here](https://github.com/miguel-saiph/harmonies-solo-companion/releases/tag/v.1.0.0)
+Only available for Android and [web](https://miguel-saiph.github.io/harmonies-solo-companion/). Download the apk [here](https://github.com/miguel-saiph/harmonies-solo-companion/releases/tag/v.1.0.0)
 
 ## Disclaimer
 
