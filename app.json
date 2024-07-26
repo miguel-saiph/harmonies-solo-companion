@@ -32,7 +32,7 @@
     ],
     "experiments": {
       "typedRoutes": true,
-      "baseUrl": "/harmonies-solo-companion"
+      "baseUrl": "/harmonies-solo-companion/"
     },
     "extra": {
       "router": {
