@@ -10,7 +10,7 @@ The web version is available [here](https://miguel-saiph.github.io/harmonies-sol
 
 ## Features
 
-* Access to the 15 scenarios by swiping left or right.
+* Access to the 15 scenarios by swiping left or right (up and down in the web version).
 * Show the requisites and saves the highscore (and only the highscores) of each scenario.
 * Earn medals upon reaching certain scores.
 * Show general instructions for getting a valid score.
