@@ -66,7 +66,7 @@ export default function Card({ scenario, index, callback }: { scenario: IScenari
     return (
         <View style={{
             width: Platform.OS === 'web' && windowWidth > 500 ? 500 : '90%',
-            height: '43%',
+            height: Platform.OS !== 'web' ? '90%' : '43%',
             backgroundColor: '#e5d8c4',
             alignSelf: 'center',
             alignItems: "center",
