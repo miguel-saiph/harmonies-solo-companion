@@ -4,6 +4,8 @@ Companion app for the unnoficial campaign created by [lovelace](https://boardgam
 
 It helps you by saving your highscore for each of the 15 scenarios.
 
+The web version is available [here](https://miguel-saiph.github.io/harmonies-solo-companion/), and the android apk is available in the [Download](#download) section.
+
 ![harmonies-gif](https://github.com/user-attachments/assets/0871c359-0b28-4dd8-b1ac-bdc07ca1f723)
 
 ## Features
