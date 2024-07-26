@@ -31,7 +31,8 @@
       "expo-router"
     ],
     "experiments": {
-      "typedRoutes": true
+      "typedRoutes": true,
+      "baseUrl": "/harmonies-solo-app"
     },
     "extra": {
       "router": {
