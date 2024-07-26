@@ -89,7 +89,7 @@ export default function Carousel({ navigation }: any) {
                                 y: 0
                             }
                         }
-                        showsHorizontalScrollIndicator={false}
+                        showsHorizontalScrollIndicator={Platform.OS !== 'web' ? false : true}
                         showsVerticalScrollIndicator={Platform.OS !== 'web' ? false : true}
                         persistentScrollbar={Platform.OS !== 'web' ? false : true}
                         onScroll={
@@ -192,7 +192,7 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         justifyContent: 'center',
         marginBottom: -8,
-        // display: Platform.OS === 'web' ? 'none' : 'flex'
+        display: Platform.OS === 'web' ? 'none' : 'flex'
     },
 });
 

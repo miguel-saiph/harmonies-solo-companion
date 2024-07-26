@@ -63,7 +63,6 @@ export default class DataManager {
             // value previously stored
             this.storageData = JSON.parse(value);
           } else {
-            // value previously stored
             this.initData();
             this.saveData(this.storageData);
           }
@@ -131,6 +130,7 @@ export default class DataManager {
     }
 
     public getCurrentLang(): string {
+        console.log(this.storageData);
         return this.storageData.currentLang;
     }
 

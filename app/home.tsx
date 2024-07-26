@@ -11,11 +11,11 @@ export default function HomeScreen({navigation}: any) {
     useEffect(() => {
         DataManager.init();
         DataManager.instance.getHighscore(1);
-        console.log('current lang: ', DataManager.instance.getCurrentLang())
-        config.setLang(DataManager.instance.getCurrentLang());
     }, []);
 
     const onPress = () => {
+        console.log('current lang: ', DataManager.instance.getCurrentLang())
+        config.setLang(DataManager.instance.getCurrentLang());
         setTimeout(() => {
             navigation.navigate('Carousel', {name: 'Carousel'})
         }, 500)
