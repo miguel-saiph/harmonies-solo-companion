@@ -7,18 +7,28 @@ import { useTaskContext } from "@/hooks/configContext";
 
 export default function HomeScreen({navigation}: any) {
     const [config] = useState(useTaskContext());
+    let isNavigating: boolean = false;
 
     useEffect(() => {
         DataManager.init();
         DataManager.instance.getHighscore(1);
+        if (Platform.OS === 'web' || Platform.OS === 'ios') {
+            setTimeout(() => {
+                onPress()
+            }, 500)
+        }
     }, []);
 
     const onPress = () => {
+        if (isNavigating) {
+            return;
+        }
         console.log('current lang: ', DataManager.instance.getCurrentLang())
         config.setLang(DataManager.instance.getCurrentLang());
         setTimeout(() => {
             navigation.navigate('Carousel', {name: 'Carousel'})
         }, 500)
+        isNavigating = true;
         // InteractionManager.runAfterInteractions(() => {
         //     navigation.navigate('Main', {name: 'Main'})
         //   });
