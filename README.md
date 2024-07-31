@@ -30,3 +30,25 @@ This is an unofficial app developed as a private project and is not affiliated w
 ## Development
 
 Developed in React Native (TypeScript) with Expo.
+
+To run the project locally, follow these steps:
+
+1. Clone de repository
+
+```
+cd your-folder-name
+git clone https://github.com/miguel-saiph/harmonies-solo-companion.git
+```
+
+2. Install dependencies:
+```
+npm install
+```
+
+3. Run the app:
+```
+npm run android
+// or
+npm run web
+```
+Now make sure to install the **Expo Go** app on either your device or emulator and scan the displayed **QR code** to access the app.
