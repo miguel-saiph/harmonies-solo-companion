@@ -34,6 +34,16 @@ export function LanguagePicker() {
                     ES
                 </ThemedText>
             </TouchableOpacity>
+            <TouchableOpacity
+                onPress={() => {
+                    config.setLang('zh-CN');
+                    DataManager.instance.setCurrentLanguage('zh-CN');
+                    setEnSelected(false);
+                }}>
+                <ThemedText style={[styles.text, {textDecorationLine: enSelected ? 'none' : 'underline'}]}>
+                    中文
+                </ThemedText>
+            </TouchableOpacity>
         </View>
     );
 }
