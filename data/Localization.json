@@ -84,6 +84,11 @@
         "es": "Derechos de las cartas pertenecen a",
         "zh-CN": "卡牌版权"
     },
+    "highscore_label": {
+        "en": "Highscore",
+        "es": "Puntaje mayor",
+        "zh-CN": "Highscore"
+    },
     "submit_title": {
         "en": "Type your new score:",
         "es": "Escribe tu nuevo puntaje:",

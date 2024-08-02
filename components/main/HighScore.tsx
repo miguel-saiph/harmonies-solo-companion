@@ -1,7 +1,13 @@
 import { View, StyleSheet } from "react-native";
 import { ThemedText } from "../ThemedText";
+import { useTaskContext } from "@/hooks/configContext";
+import { ILoc } from "./Info";
+import localization from '@/data/Localization.json';
 
 export function HighScore({value}: {value: number}) {
+    const lang = useTaskContext().lang;
+    const texts: ILoc = localization;
+
     return (
         <View style={{
             display: 'flex',
@@ -9,7 +15,7 @@ export function HighScore({value}: {value: number}) {
             marginTop: 10
         }}>
             <ThemedText style={styles.text}>
-                Highscore:
+                {texts.highscore_label[lang]}:
             </ThemedText>
             <ThemedText style={styles.text}>
                 {value}
