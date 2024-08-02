@@ -3,48 +3,58 @@ import { ThemedText } from "../ThemedText";
 import { useEffect, useState } from "react";
 import { useTaskContext } from "@/hooks/configContext";
 import DataManager from "@/data/DataManager";
+import { Languages } from "@/constants/Languages";
 
 export function LanguagePicker() {
-    const [enSelected, setEnSelected] = useState(true);
+    const [langState, setLangState] = useState([] as boolean[]);
     const [config] = useState(useTaskContext());
 
     useEffect(() => {
-        setEnSelected(config.lang === 'en');
+        updateSelectedLang();
     }, [config]);
+
+    const updateSelectedLang = (): void => {
+        for (let i: number = 0; i < Object.keys(Languages).length; i++) {
+            const langKey: string = Object.keys(Languages)[i];
+            langState[i] = langKey === DataManager.instance.getCurrentLang();
+        }
+        setLangState([...langState]);
+    }
+
+    const onLangPressed = (langKey: string): void => {
+        config.setLang(langKey);
+        DataManager.instance.setCurrentLanguage(langKey);
+        updateSelectedLang();
+    }
+
 
     return (
         <View style={styles.container}>
-            <TouchableOpacity
-                onPress={() => {
-                    config.setLang('en');
-                    DataManager.instance.setCurrentLanguage('en');
-                    setEnSelected(true);
-                }}>
-                <ThemedText style={[styles.text, {textDecorationLine: enSelected ? 'underline' : 'none'}]}>
-                    EN
-                </ThemedText>
-            </TouchableOpacity>
-            <TouchableOpacity
-                onPress={() => {
-                    config.setLang('es');
-                    DataManager.instance.setCurrentLanguage('es');
-                    setEnSelected(false);
-                }}>
-                <ThemedText style={[styles.text, {textDecorationLine: enSelected ? 'none' : 'underline'}]}>
-                    ES
-                </ThemedText>
-            </TouchableOpacity>
-            <TouchableOpacity
-                onPress={() => {
-                    config.setLang('zh-CN');
-                    DataManager.instance.setCurrentLanguage('zh-CN');
-                    setEnSelected(false);
-                }}>
-                <ThemedText style={[styles.text, {textDecorationLine: enSelected ? 'none' : 'underline'}]}>
-                    中文
-                </ThemedText>
-            </TouchableOpacity>
+            {Object.entries(Languages).map(([key, value], index) => {
+                return (
+                    <LangBtn 
+                        key={key}
+                        onPress={() => { onLangPressed(key) }} 
+                        selectionState={langState[index]}
+                        displayName={value}
+                    />
+                )
+
+            })}
         </View>
+    );
+}
+
+function LangBtn({ onPress, selectionState, displayName }: { onPress: Function, selectionState: boolean, displayName: string }) {
+    return (
+        <TouchableOpacity
+            onPress={() => {
+                onPress();
+            }}>
+            <ThemedText style={[styles.text, { textDecorationLine: selectionState === true ? 'underline' : 'none' }]}>
+                {displayName}
+            </ThemedText>
+        </TouchableOpacity>
     );
 }
 

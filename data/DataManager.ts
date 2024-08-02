@@ -130,7 +130,6 @@ export default class DataManager {
     }
 
     public getCurrentLang(): string {
-        console.log(this.storageData);
         return this.storageData.currentLang;
     }
 
