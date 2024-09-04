@@ -9,10 +9,11 @@ import { useState } from "react";
 import { ImageSourcePropType, TouchableOpacity, View, Modal, StyleSheet, TextInput, Platform, useWindowDimensions } from "react-native";
 import { Image } from 'react-native';
 import { CustomModal } from "./Modal";
-import { Calculator} from "./Calculator";
+import { Calculator } from "./Calculator";
 import localization from '@/data/Localization.json';
 import { ILoc } from "./Info";
 import { useTaskContext } from "@/hooks/configContext";
+import { Trash } from "./Trash";
 
 const cardsSourceMap: ImageSourcePropType[] = [
     require("@/assets/images/cards/sc1.png"),
@@ -58,6 +59,12 @@ export default function Card({ scenario, index, callback }: { scenario: IScenari
         setModalVisible(false);
     }
 
+    const onResetScore = (): void => {
+        onChangeHighscore(0);
+        DataManager.instance.setNewHighscore(index, 0);
+        callback();
+    }
+
     useEffect(() => {
         const previousHighscore: number = DataManager.instance.getHighscore(index);
         onChangeHighscore(previousHighscore);
@@ -88,7 +95,7 @@ export default function Card({ scenario, index, callback }: { scenario: IScenari
             }}>
                 {scenario.name[lang]}
             </ThemedText>
-            
+
             <Image source={cardsSourceMap[index]} style={{
                 width: 300,
                 height: 200
@@ -121,32 +128,42 @@ export default function Card({ scenario, index, callback }: { scenario: IScenari
                 >
                     <ThemedText adjustsFontSizeToFit={true} numberOfLines={1} style={styles.appButtonText} > {texts.button_submit[lang]} </ThemedText>
                 </TouchableOpacity>
+
                 <CustomModal modalVisible={modalVisible} width={'75%'} height={'50%'} onRequestClose={setModalVisible}
                     children={
-                        <View style={{alignItems: 'center'}}>
+                        <View style={{ alignItems: 'center' }}>
                             <ThemedText style={styles.modalText}>{texts.submit_title[lang]}</ThemedText>
-                                <TextInput
-                                    style={styles.input}
-                                    keyboardType="numeric"
-                                    onChangeText={onChangeNumber}
-                                    value={number}
-                                    maxLength={3}
-                                />
-                                <TouchableOpacity
-                                    activeOpacity={1}
-                                    onPress={() => {
-                                        onScoreSubmitted();
-                                        // setModalVisible(!modalVisible);
-                                    }}
-                                    style={styles.inputButton}
-                                >
-                                    <ThemedText style={styles.appButtonText} >Ok</ThemedText>
-                                </TouchableOpacity>
-                                <Calculator onScoreSubmitted={onScoreSubmitted} updateScore={onChangeNumber} />
+                            <TextInput
+                                style={styles.input}
+                                keyboardType="numeric"
+                                onChangeText={onChangeNumber}
+                                value={number}
+                                maxLength={3}
+                            />
+                            <TouchableOpacity
+                                activeOpacity={1}
+                                onPress={() => {
+                                    onScoreSubmitted();
+                                    // setModalVisible(!modalVisible);
+                                }}
+                                style={styles.inputButton}
+                            >
+                                <ThemedText style={styles.appButtonText} >Ok</ThemedText>
+                            </TouchableOpacity>
+                            <Calculator onScoreSubmitted={onScoreSubmitted} updateScore={onChangeNumber} />
                         </View>
                     }>
 
                 </CustomModal>
+            </View>
+            <View style={{
+                // flexDirection: "row",
+                alignItems: "flex-start",
+                marginRight: "auto",
+                marginLeft: 14,
+                marginTop: -85
+            }}>
+                <Trash onResetScore={onResetScore} />
             </View>
         </View>
     );

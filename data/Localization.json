@@ -89,6 +89,11 @@
         "es": "Puntaje mayor",
         "zh-CN": "最高分"
     },
+    "trash_confirmation": {
+        "en": "Confirm to reset the score for this scenario",
+        "es": "Confirma para reiniciar el puntaje de este escenario",
+        "zh-CN": "确认重置此场景的分数"
+    },
     "submit_title": {
         "en": "Type your new score:",
         "es": "Escribe tu nuevo puntaje:",
