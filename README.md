@@ -15,7 +15,8 @@ The web version is available [here](https://miguel-saiph.github.io/harmonies-sol
 * Earn medals upon reaching certain scores.
 * Show general instructions for getting a valid score.
 * Has a calculator to add up the total score of a game.
-* The language can be changed within the application. Available languages: English and Spanish.
+* The language can be changed within the application.
+* Available languages: English, Spanish and Chinese (credits to [tatomel](https://boardgamegeek.com/user/tatomel)).
 
 ## Download
 
