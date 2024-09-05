@@ -81,23 +81,22 @@ export default function Carousel({ navigation }: any) {
                 <View style={styles.scrollContainer}>
                     <ScrollView
                         ref={refScrollView}
-                        horizontal={Platform.OS !== 'web' ? true : false}
-                        pagingEnabled
-                        contentOffset={
-                            {
-                                x: xCoords[DataManager.instance.getLastScenario()],
-                                y: 0
-                            }
-                        }
-                        showsHorizontalScrollIndicator={Platform.OS !== 'web' ? false : true}
+                        // pagingEnabled
+                        // contentOffset={
+                        //     {
+                        //         x: xCoords[DataManager.instance.getLastScenario()],
+                        //         y: 0
+                        //     }
+                        // }
+                        // showsHorizontalScrollIndicator={Platform.OS !== 'web' ? false : true}
                         showsVerticalScrollIndicator={Platform.OS !== 'web' ? false : true}
-                        persistentScrollbar={Platform.OS !== 'web' ? false : true}
+                        // persistentScrollbar={Platform.OS !== 'web' ? false : true}
                         onScroll={
                             Animated.event([
                             {
                                 nativeEvent: {
                                     contentOffset: {
-                                        x: scrollX,
+                                        x: scrollX
                                     }
                                 },
                             },
@@ -108,7 +107,7 @@ export default function Carousel({ navigation }: any) {
                         scrollEventThrottle={1}>
                         {data.scenarios.map((scenario, index) => {
                             return (
-                                <View style={{ width: windowWidth, height: 580 }} key={index}
+                                <View style={{ width: windowWidth, height: 250 }} key={index}
                                 onLayout={
                                     event => {
                                         const layout = event.nativeEvent.layout;
@@ -128,25 +127,6 @@ export default function Carousel({ navigation }: any) {
                             );
                         })}
                     </ScrollView>
-                    <View style={styles.indicatorContainer}>
-                        {data.scenarios.map((scenario, index) => {
-                            const width = scrollX.interpolate({
-                                inputRange: [
-                                    windowWidth * (index - 1),
-                                    windowWidth * index,
-                                    windowWidth * (index + 1),
-                                ],
-                                outputRange: [8, 16, 8],
-                                extrapolate: 'clamp',
-                            });
-                            return (
-                                <Animated.View
-                                    key={index}
-                                    style={[styles.normalDot, { width }]}
-                                />
-                            );
-                        })}
-                    </View>
                 </View>
             </ImageBackground>
             <Animated.View style={{

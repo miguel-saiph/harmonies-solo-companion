@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "Harmonies Solo Campaign",
-    "slug": "harmonies-solo-app",
+    "name": "Cascadia Achievement Tracker",
+    "slug": "cascadia-achievement-tracker",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/images/app_icon.png",
@@ -20,7 +20,7 @@
         "foregroundImage": "./assets/images/app_icon.png",
         "backgroundColor": "#ffffff"
       },
-      "package": "com.vimur.harmoniessoloapp"
+      "package": "com.vimur.cascadiaachievementtracker"
     },
     "web": {
       "bundler": "metro",
@@ -32,15 +32,16 @@
     ],
     "experiments": {
       "typedRoutes": true,
-      "baseUrl": "/harmonies-solo-companion/"
+      "baseUrl": "/cascadia-achievement-tracker/"
     },
     "extra": {
       "router": {
         "origin": false
       },
       "eas": {
-        "projectId": "a445e706-0f9c-4903-a826-631d73a9cf9d"
+        "projectId": "27b86b9e-3904-4f73-87ac-87bc3cd09b04"
       }
-    }
+    },
+    "owner": "vimur"
   }
 }

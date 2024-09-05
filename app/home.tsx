@@ -58,7 +58,7 @@ export default function HomeScreen({navigation}: any) {
 const styles = StyleSheet.create({
     cover: {
         width: Platform.OS !== 'web' ? '100%' : 1080 * 0.35, 
-        height: Platform.OS !== 'web' ? '100%' : 1920 * 0.35,
+        height: Platform.OS !== 'web' ? '100%' : 1080 * 0.35,
         alignSelf: 'center'
     }
 });

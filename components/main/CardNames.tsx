@@ -1,6 +1,9 @@
 import { StyleSheet, View, Image, Text, ImageSourcePropType, Platform } from 'react-native';
 import { ThemedText } from '@/components/ThemedText';
 import { useTaskContext } from "@/hooks/configContext";
+import BouncyCheckbox from "react-native-bouncy-checkbox";
+// Checkbox documentation
+// https://github.com/WrathChaos/react-native-bouncy-checkbox
 
 export const enum MapType {
     A, B
@@ -11,7 +14,7 @@ export interface IAnimalInfo {
     type: string
 }
 
-const typeMap: {[key: string]: ImageSourcePropType} = {
+const typeMap: { [key: string]: ImageSourcePropType } = {
     ['rock']: require('@/assets/images/lines/line_rock.png'),
     ['land']: require('@/assets/images/lines/line_land.png'),
     ['water']: require('@/assets/images/lines/line_water.png'),
@@ -49,14 +52,15 @@ export function CardNames({ animals, mapType }: { animals: IAnimalInfo[], mapTyp
             <View style={{
                 flex: 3
             }}>
-                {
-                    
-                }
-                <Image source={
-                    mapType === MapType.A ?
-                    require('@/assets/images/maps/map_a.png') :
-                    require('@/assets/images/maps/map_b.png')
-                    } style={styles.map} resizeMode={"contain"}/>
+                <BouncyCheckbox
+                    size={25}
+                    fillColor="green"
+                    unFillColor="#FFFFFF"
+                    iconStyle={{ borderColor: "green" }}
+                    innerIconStyle={{ borderWidth: 3 }}
+                    disableText={true}
+                    onPress={(isChecked: boolean) => { console.log(isChecked) }}
+                />
             </View>
         </View>
     );
@@ -68,7 +72,7 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         flexWrap: 'wrap',
         // justifyContent: 'space-evenly',
-        alignItems:'center',
+        alignItems: 'center',
         marginVertical: 3,
         marginLeft: 60,
         // marginBottom: 5
