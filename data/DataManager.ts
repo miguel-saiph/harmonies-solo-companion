@@ -17,7 +17,7 @@ export interface IScenarioData {
 export default class DataManager {
     private storageData!: IStorageData;
     private localData: { [key: number]: any } = {};
-    private dataVersion: number = 0.4;
+    private dataVersion: number = 0.3;
 
     public allUnlocked: boolean = false;
 

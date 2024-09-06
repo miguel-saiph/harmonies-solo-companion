@@ -96,6 +96,10 @@ export default function Card({ scenario, index, callback }: { scenario: IScenari
                 {scenario.name[lang]}
             </ThemedText>
 
+            <Image source={cardsSourceMap[index]} style={{
+                width: 300,
+                height: 200
+            }} resizeMode={"contain"} />
             <CardNames animals={scenario.animals} mapType={scenario.map === 0 ? MapType.A : MapType.B}>
             </CardNames>
             <View style={{
@@ -103,6 +107,63 @@ export default function Card({ scenario, index, callback }: { scenario: IScenari
                 flexDirection: 'row',
                 marginTop: 10
             }}>
+                <Medal type={MedalType.Bronze} score={highscore}></Medal>
+                <Medal type={MedalType.Silver} score={highscore}></Medal>
+                <Medal type={MedalType.Gold} score={highscore}></Medal>
+            </View>
+            <HighScore value={highscore} />
+            <View style={{
+                // flexDirection: "row",
+                alignItems: "flex-end",
+                marginLeft: "auto",
+                marginTop: -15
+            }}>
+                <TouchableOpacity
+                    activeOpacity={1}
+                    onPress={() => {
+                        setModalVisible(!modalVisible)
+                        onChangeNumber("");
+                    }}
+                    style={styles.appButtonContainer}
+                >
+                    <ThemedText adjustsFontSizeToFit={true} numberOfLines={1} style={styles.appButtonText} > {texts.button_submit[lang]} </ThemedText>
+                </TouchableOpacity>
+
+                <CustomModal modalVisible={modalVisible} width={'75%'} height={'50%'} onRequestClose={setModalVisible}
+                    children={
+                        <View style={{ alignItems: 'center' }}>
+                            <ThemedText style={styles.modalText}>{texts.submit_title[lang]}</ThemedText>
+                            <TextInput
+                                style={styles.input}
+                                keyboardType="numeric"
+                                onChangeText={onChangeNumber}
+                                value={number}
+                                maxLength={3}
+                            />
+                            <TouchableOpacity
+                                activeOpacity={1}
+                                onPress={() => {
+                                    onScoreSubmitted();
+                                    // setModalVisible(!modalVisible);
+                                }}
+                                style={styles.inputButton}
+                            >
+                                <ThemedText style={styles.appButtonText} >Ok</ThemedText>
+                            </TouchableOpacity>
+                            <Calculator onScoreSubmitted={onScoreSubmitted} updateScore={onChangeNumber} />
+                        </View>
+                    }>
+
+                </CustomModal>
+            </View>
+            <View style={{
+                // flexDirection: "row",
+                alignItems: "flex-start",
+                marginRight: "auto",
+                marginLeft: 14,
+                marginTop: -85
+            }}>
+                <Trash onResetScore={onResetScore} />
             </View>
         </View>
     );
