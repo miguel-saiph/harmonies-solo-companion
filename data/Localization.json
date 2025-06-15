@@ -2,141 +2,169 @@
     "info_title": {
         "en": "General Rules",
         "es": "Reglas Generales",
-        "zh-CN": "一般规则"
+        "zh-CN": "一般规则",
+        "de": "Grundregeln"
     },
     "info_p1": {
         "en": "The rules of the official solo mode apply with some modifications:",
         "es": "Las reglas del modo solitario oficial aplican con ciertas modificaciones:",
-        "zh-CN": "官方单人模式的规则适用，但有一些修改："
+        "zh-CN": "官方单人模式的规则适用，但有一些修改：",
+        "de": "Es gelten die Regeln des offiziellen Solomodus, bis auf folgende Änderungen:"
     },
     "info_p2": {
         "en": "You start each scenario with 3 cards. To qualify for victory, you must complete all three.",
         "es": "Empiezas cada escenario con 3 cartas. Para calificar para la victoria, debes completar las tres.",
-        "zh-CN": "每个场景你将以 3 张卡牌开始。要获得胜利，你必须完成所有三张卡牌。"
+        "zh-CN": "每个场景你将以 3 张卡牌开始。要获得胜利，你必须完成所有三张卡牌。",
+        "de": "Du startest jedes Szenario mit 3 Karten. Um zu gewinnen, müssen alle drei abgeschlossen sein."
     },
     "info_p3": {
         "en": "Your fourth slot can be used as usual.",
         "es": "Tu cuarto espacio se puede usar con normalidad.",
-        "zh-CN": "你的第四个卡槽可以照常使用。"
+        "zh-CN": "你的第四个卡槽可以照常使用。",
+        "de": "Dein vierter Kartenplatz kann wie gewohnt verwendet werden."
     },
     "info_p4": {
         "en": "There are three target scores for each scenario:",
         "es": "Hay tres puntuaciones objetivo por cada escenario:",
-        "zh-CN": "每个场景都有三个目标分数："
+        "zh-CN": "每个场景都有三个目标分数：",
+        "de": "Es gibt für jedes Szenario drei Ziel-Punktzahlen:"
     },
     "info_bronze": {
         "en": "Bronze",
         "es": "Bronce",
-        "zh-CN": "铜牌"
+        "zh-CN": "铜牌",
+        "de": "Bronze"
     },
     "info_silver": {
         "en": "Silver",
         "es": "Plata",
-        "zh-CN": "银牌"
+        "zh-CN": "银牌",
+        "de": "Silber"
     },
     "info_gold": {
         "en": "Gold",
         "es": "Oro",
-        "zh-CN": "金牌"
+        "zh-CN": "金牌",
+        "de": "Gold"
     },
     "info_points": {
         "en": "points",
         "es": "Puntos",
-        "zh-CN": "点数"
+        "zh-CN": "点数",
+        "de": "Punkte"
     },
     "info_optional": {
         "en": "You may use this optional action once per game:",
         "es": "Puedes usar la siguiente accion opcional una vez por juego",
-        "zh-CN": "每局游戏你可以使用一次此可选行动："
+        "zh-CN": "每局游戏你可以使用一次此可选行动：",
+        "de": "Du kannst folgende optionale Aktion einmal pro Spiel ausführen:"
     },
     "info_recycle": {
         "en": "Recycle",
         "es": "Reciclar",
-        "zh-CN": "回收"
+        "zh-CN": "回收",
+        "de": "Recyceln"
     },
     "info_recycle_desc": {
         "en": "After you have drawn the 9 tokens, but before you have taken any of them you can set aside the 9 tokens, draw 9 more tokens and distribute them on the 3 spaces and then put the previous 9 tokens back into the pouch.",
         "es": "Despues de que saques 9 fichas, pero antes de elegir alguna de ellas, puedes dejar a un lado las 9 fichas, sacar 9 mas y distribuirlas en los 3 espacios. Luego devuelve las 9 fichas anteriores a la bolsa.",
-        "zh-CN": "在你抽取了 9 个标记之后，但在你拿走任何一个标记之前，你可以将这 9 个标记放在一边，再抽取 9 个标记并将它们分配到 3 个空格上，然后将之前的 9 个标记放回袋子中。"
+        "zh-CN": "在你抽取了 9 个标记之后，但在你拿走任何一个标记之前，你可以将这 9 个标记放在一边，再抽取 9 个标记并将它们分配到 3 个空格上，然后将之前的 9 个标记放回袋子中。",
+        "de": "Nachdem du die 9 Spielsteine gezogen hast, aber bevor du davon welche nimmst, darfst du alle 9 Spielsteine zu Seite legen, 9 neue aus dem Beutel ziehen, sie auf den 3 Feldern des Spielplans verteilen und danach die zur Seite gelegten Spielsteine wieder in den Beutel werfen."
     },
     "credits_title": {
         "en": "Credits",
         "es": "Creditos",
-        "zh-CN": "鸣谢"
+        "zh-CN": "鸣谢",
+        "de": "Anerkennung"
     },
     "credits_p1": {
         "en": "App based on the solo variant",
         "es": "App basada en la variante solitaria",
-        "zh-CN": "应用程序基于单人游戏变体"
+        "zh-CN": "应用程序基于单人游戏变体",
+        "de": "App basierend auf der Solovariante"
     },
     "credits_p2": {
         "en": "Scenarios and photos created by",
         "es": "Escenarios y fotos creadas por",
-        "zh-CN": "场景和照片创作"
+        "zh-CN": "场景和照片创作",
+        "de": "Szenarien und Fotos erstellt von"
     },
     "credits_p3": {
         "en": "App developed by",
         "es": "App desarrollada por",
-        "zh-CN": "应用程序开发"
+        "zh-CN": "应用程序开发",
+        "de": "App entwickelt von"
     },
     "credits_p4": {
         "en": "Cards copyrighted by",
         "es": "Derechos de las cartas pertenecen a",
-        "zh-CN": "卡牌版权"
+        "zh-CN": "卡牌版权",
+        "de": "Karten urheberrechtlich geschützt von"
     },
     "highscore_label": {
         "en": "Highscore",
         "es": "Puntaje mayor",
-        "zh-CN": "最高分"
+        "zh-CN": "最高分",
+        "de": "Bestpunktzahl"
     },
     "trash_confirmation": {
         "en": "Confirm to reset the score for this scenario",
         "es": "Confirma para reiniciar el puntaje de este escenario",
-        "zh-CN": "确认重置此场景的分数"
+        "zh-CN": "确认重置此场景的分数",
+        "de": "Bestätige das Zurücksetzen der Punktzahl für dieses Szenario"
     },
     "submit_title": {
         "en": "Type your new score:",
         "es": "Escribe tu nuevo puntaje:",
-        "zh-CN": "输入你的新分数："
+        "zh-CN": "输入你的新分数：",
+        "de": "Gib deine neue Punktzahl ein:"
     },
     "calculator_title": {
         "en": "Calculator",
         "es": "Calculadora",
-        "zh-CN": "计算器"
+        "zh-CN": "计算器",
+        "de": "Kalkulator"
     },
     "button_submit": {
         "en": "Submit",
         "es": "Registrar",
-        "zh-CN": "提交"
+        "zh-CN": "提交",
+        "de": "Absenden"
     },
     "type_animals": {
         "en": "Animals",
         "es": "Animales",
-        "zh-CN": "动物"
+        "zh-CN": "动物",
+        "de": "Tiere"
     },
     "type_trees": {
         "en": "Trees",
         "es": "Arboles",
-        "zh-CN": "树木"
+        "zh-CN": "树木",
+        "de": "Bäume"
     },
     "type_mountains": {
         "en": "Mountains",
         "es": "Montes",
-        "zh-CN": "山脉"
+        "zh-CN": "山脉",
+        "de": "Berge"
     },
     "type_fields": {
         "en": "Fields",
         "es": "Campos",
-        "zh-CN": "田野"
+        "zh-CN": "田野",
+        "de": "Felder"
     },
     "type_buildings": {
         "en": "Buildings",
         "es": "Edificios",
-        "zh-CN": "建筑"
+        "zh-CN": "建筑",
+        "de": "Gebäude"
     },
     "type_water": {
         "en": "Water",
         "es": "Agua",
-        "zh-CN": "水域"
+        "zh-CN": "水域",
+        "de": "Wasser"
     }
 }
