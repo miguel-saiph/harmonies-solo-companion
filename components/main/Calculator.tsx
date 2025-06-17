@@ -1,4 +1,6 @@
-import { View, StyleSheet, TouchableOpacity, Image, Modal, TextInput } from "react-native";
+// Calculator.tsx
+
+import { View, StyleSheet, TouchableOpacity, Image, TextInput } from "react-native";
 import { ThemedText } from "../ThemedText";
 import { useEffect, useState } from "react";
 import { CustomModal } from "./Modal";
@@ -9,33 +11,23 @@ import { useTaskContext } from "@/hooks/configContext";
 
 export function Calculator({ onScoreSubmitted, updateScore }: { onScoreSubmitted: Function, updateScore: any }) {
     const [modalVisible, setModalVisible] = useState(false);
-    const [numbersInput, onAddNumberInput] = React.useState([] as string[]);
-    const [total, updateTotal] = React.useState(0);
-    let numbers: string[] = new Array(6);
+    const [numbersInput, onAddNumberInput] = useState(Array(6).fill('0'));
+    const [total, updateTotal] = useState(0);
     const lang = useTaskContext().lang;
     const texts: ILoc = localization;
 
+    // Recalculate total whenever numbersInput changes
     useEffect(() => {
-        for (let i: number = 0; i < 5; i++) {
-            numbersInput[i] = '0';   
-        }
-    }, []);
-
-    const addNumber = (input: string) => {
-        if (Number.isNaN(parseInt(input))) {
-            return;
-        }
-        let newTotal: number = 0;
-        numbersInput.forEach((v: string) => {
-            newTotal += parseInt(v);
-        });
+        const newTotal = numbersInput.reduce((sum, v) => sum + (parseInt(v) || 0), 0);
         updateTotal(newTotal);
         updateScore(newTotal);
-    }
+    }, [numbersInput, updateScore]);
 
     const onChangeNumber = (value: string, index: number) => {
-        numbersInput[index] = value;
-    }
+        const updated = [...numbersInput];
+        updated[index] = value.replace(/[^0-9]/g, ''); // Only allow numbers
+        onAddNumberInput(updated);
+    };
 
     return (
         <View style={{ paddingTop: 20, flex: 1 }}>
@@ -52,13 +44,14 @@ export function Calculator({ onScoreSubmitted, updateScore }: { onScoreSubmitted
                     height: 40,
                 }} />
             </TouchableOpacity>
-            <CustomModal modalVisible={modalVisible} width={'90%'} onRequestClose={setModalVisible} children={
+            <CustomModal modalVisible={modalVisible} width={'90%'} onRequestClose={setModalVisible}>
                 <View style={{ alignItems: 'center' }}>
                     <ThemedText style={[styles.modalText, styles.title]}>{texts.calculator_title[lang]}</ThemedText>
                     <View style={{ alignItems: 'center' }}>
+                        {/* Animal */}
                         <View style={{ flexDirection: 'row', paddingTop: 5 }}>
                             <View style={{ flexDirection: 'row', flex: 3 }}>
-                                <Image source={require('@/assets/images/paw.png')} style={{width: 30, height: 35, marginLeft: -10}} />
+                                <Image source={require('@/assets/images/paw.png')} style={{ width: 30, height: 35, marginLeft: -10 }} />
                                 <ThemedText style={styles.modalText}>{texts.type_animals[lang]}</ThemedText>
                             </View>
                             <View style={{ flex: 1 }}>
@@ -66,13 +59,12 @@ export function Calculator({ onScoreSubmitted, updateScore }: { onScoreSubmitted
                                     style={styles.input}
                                     keyboardType="numeric"
                                     onChangeText={(number) => onChangeNumber(number, 0)}
-                                    onEndEditing={() => addNumber(numbersInput[0])}
-                                    value={numbers[0]}
+                                    value={numbersInput[0]}
                                     maxLength={3}
-                                    defaultValue="0"
                                 />
                             </View>
                         </View>
+                        {/* Trees */}
                         <View style={{ flexDirection: 'row', paddingTop: 5 }}>
                             <View style={{ flexDirection: 'row', flex: 3 }}>
                                 <Image source={require('@/assets/images/lines/line_grass.png')} style={styles.lineIcon} />
@@ -83,13 +75,12 @@ export function Calculator({ onScoreSubmitted, updateScore }: { onScoreSubmitted
                                     style={styles.input}
                                     keyboardType="numeric"
                                     onChangeText={(number) => onChangeNumber(number, 1)}
-                                    onEndEditing={() => addNumber(numbersInput[1])}
-                                    value={numbers[1]}
+                                    value={numbersInput[1]}
                                     maxLength={3}
-                                    defaultValue="0"
                                 />
                             </View>
                         </View>
+                        {/* Mountains */}
                         <View style={{ flexDirection: 'row', paddingTop: 5 }}>
                             <View style={{ flexDirection: 'row', flex: 3 }}>
                                 <Image source={require('@/assets/images/lines/line_rock.png')} style={styles.lineIcon} />
@@ -100,13 +91,12 @@ export function Calculator({ onScoreSubmitted, updateScore }: { onScoreSubmitted
                                     style={styles.input}
                                     keyboardType="numeric"
                                     onChangeText={(number) => onChangeNumber(number, 2)}
-                                    onEndEditing={() => addNumber(numbersInput[2])}
-                                    value={numbers[2]}
+                                    value={numbersInput[2]}
                                     maxLength={3}
-                                    defaultValue="0"
                                 />
                             </View>
                         </View>
+                        {/* Fields */}
                         <View style={{ flexDirection: 'row', paddingTop: 5 }}>
                             <View style={{ flexDirection: 'row', flex: 3 }}>
                                 <Image source={require('@/assets/images/lines/line_land.png')} style={styles.lineIcon} />
@@ -117,13 +107,12 @@ export function Calculator({ onScoreSubmitted, updateScore }: { onScoreSubmitted
                                     style={styles.input}
                                     keyboardType="numeric"
                                     onChangeText={(number) => onChangeNumber(number, 3)}
-                                    onEndEditing={() => addNumber(numbersInput[3])}
-                                    value={numbers[3]}
+                                    value={numbersInput[3]}
                                     maxLength={3}
-                                    defaultValue="0"
                                 />
                             </View>
                         </View>
+                        {/* Buildings */}
                         <View style={{ flexDirection: 'row', paddingTop: 5 }}>
                             <View style={{ flexDirection: 'row', flex: 3 }}>
                                 <Image source={require('@/assets/images/lines/line_constru.png')} style={styles.lineIcon} />
@@ -134,13 +123,12 @@ export function Calculator({ onScoreSubmitted, updateScore }: { onScoreSubmitted
                                     style={styles.input}
                                     keyboardType="numeric"
                                     onChangeText={(number) => onChangeNumber(number, 4)}
-                                    onEndEditing={() => addNumber(numbersInput[4])}
-                                    value={numbers[4]}
+                                    value={numbersInput[4]}
                                     maxLength={3}
-                                    defaultValue="0"
                                 />
                             </View>
                         </View>
+                        {/* Water */}
                         <View style={{ flexDirection: 'row', paddingTop: 5 }}>
                             <View style={{ flexDirection: 'row', flex: 3 }}>
                                 <Image source={require('@/assets/images/lines/line_water.png')} style={styles.lineIcon} />
@@ -151,10 +139,8 @@ export function Calculator({ onScoreSubmitted, updateScore }: { onScoreSubmitted
                                     style={styles.input}
                                     keyboardType="numeric"
                                     onChangeText={(number) => onChangeNumber(number, 5)}
-                                    onEndEditing={() => addNumber(numbersInput[5])}
-                                    value={numbers[5]}
+                                    value={numbersInput[5]}
                                     maxLength={3}
-                                    defaultValue="0"
                                 />
                             </View>
                         </View>
@@ -164,14 +150,13 @@ export function Calculator({ onScoreSubmitted, updateScore }: { onScoreSubmitted
                         activeOpacity={1}
                         onPress={() => {
                             onScoreSubmitted();
-                            setModalVisible(!modalVisible);
+                            setModalVisible(false);
                         }}
                         style={styles.inputButton}
                     >
                         <ThemedText style={styles.appButtonText} >Ok</ThemedText>
                     </TouchableOpacity>
                 </View>
-            }>
             </CustomModal>
         </View>
     );
@@ -198,7 +183,6 @@ const styles = StyleSheet.create({
         borderWidth: 1,
         borderRadius: 5,
         textAlign: 'center',
-        // padding: 15,
     },
     lineIcon: {
         width: 15,
