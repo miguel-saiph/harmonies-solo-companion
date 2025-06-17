@@ -1,3 +1,4 @@
+import 'react-native-reanimated';
 import PressableOpacity from "@/components/PressableAnimation";
 import { ThemedText } from "@/components/ThemedText";
 import { useRef, useEffect } from "react";
@@ -9,7 +10,6 @@ import HomeScreen from "./home";
 
 import { useFonts } from 'expo-font';
 import * as SplashScreen from 'expo-splash-screen';
-import 'react-native-reanimated';
 
 import { useColorScheme } from '@/hooks/useColorScheme';
 // import MainScreen from "./main";
@@ -24,7 +24,7 @@ const Stack = createNativeStackNavigator();
 
 export default function Index() {
     const [loaded] = useFonts({
-        VixarASCI: require('../assets/fonts/Vixar ASCI Regular.ttf'),
+        VixarASCI: require('../assets/fonts/Vixar-ASCI-Regular.ttf'),
     });
 
     useEffect(() => {

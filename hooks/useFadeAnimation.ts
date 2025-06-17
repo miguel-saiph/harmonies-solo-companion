@@ -1,16 +1,16 @@
 import React from "react";
-import { Animated } from "react-native";
+import { Platform, Animated } from "react-native";
 
 const FADE_IN_ANIMATION_CONFIG = {
     toValue: 1,
     duration: 1000,
-    useNativeDriver: true,
+    useNativeDriver: Platform.OS !== 'web',
 }
 
 const FADE_OUT_ANIMATION_CONFIG = {
     toValue: 0,
     duration: 1000,
-    useNativeDriver: true,
+    useNativeDriver: Platform.OS !== 'web',
 }
 
 export default function useAnimation() {
