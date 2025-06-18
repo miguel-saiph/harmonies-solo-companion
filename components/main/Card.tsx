@@ -11,6 +11,7 @@ import { Image } from 'react-native';
 import { CustomModal } from "./Modal";
 import { Calculator } from "./Calculator";
 import localization from '@/data/Localization.json';
+import { Languages } from "@/constants/Languages";
 import { ILoc } from "./Info";
 import { useTaskContext } from "@/hooks/configContext";
 import { Trash } from "./Trash";
@@ -40,6 +41,35 @@ const nameColorMap: { [key: string]: string } = {
     ['grass']: "#87992e",
     ['constru']: "#ba2a4b",
     ['extra']: "#c2641f"
+}
+
+function getCardImage(index: number, lang: string): ImageSourcePropType {
+    if (index === 4) { // card5
+        const supportedLangs = Object.keys(Languages);
+        if (supportedLangs.includes(lang)) {
+            try {
+                switch (lang) {
+                    case "de":
+                        return require("@/assets/images/cards/sc5_de.png");
+                    // uncomment when also adding the image
+                    //case "es":
+                    //    return require("@/assets/images/cards/sc5_es.png");
+                    //case "zh-CN":
+                    //    return require("@/assets/images/cards/sc5_zh-CN.png");
+                    case "en":
+                        return require("@/assets/images/cards/sc5.png");
+                    default:
+                        return require("@/assets/images/cards/sc5.png");
+                }
+            } catch (e) {
+                // Fallback
+                return require("@/assets/images/cards/sc5.png");
+            }
+        } else {
+            return require("@/assets/images/cards/sc5.png");
+        }
+    }
+    return cardsSourceMap[index];
 }
 
 export default function Card({ scenario, index, callback }: { scenario: IScenario, index: number, callback: Function }) {
@@ -96,7 +126,7 @@ export default function Card({ scenario, index, callback }: { scenario: IScenari
                 {scenario.name[lang]}
             </ThemedText>
 
-            <Image source={cardsSourceMap[index]} style={{
+            <Image source={getCardImage(index, lang)} style={{
                 width: 300,
                 height: 200
             }} resizeMode={"contain"} />
