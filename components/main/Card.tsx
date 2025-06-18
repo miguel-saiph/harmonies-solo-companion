@@ -91,7 +91,7 @@ export default function Card({ scenario, index, callback }: { scenario: IScenari
                 fontFamily: 'VixarASCI',
                 fontSize: 35,
                 color: nameColorMap[scenario.type],
-                paddingTop: 25,
+                paddingTop: 22,
                 maxWidth: 260,
                 minHeight: 50
             }}>
