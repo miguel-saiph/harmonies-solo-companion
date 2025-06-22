@@ -28,8 +28,9 @@ export function Medal({type, score}: {type: MedalType, score: number}) {
             <Image source={imagePaths[type]} style={{
                 width: 50,
                 height: 50,
-                tintColor: isMedalActive() ? undefined : 'gray'
-            }} />
+            }} tintColor={isMedalActive() ? undefined : "grey"} 
+  
+            />
         </View>
     );
 }

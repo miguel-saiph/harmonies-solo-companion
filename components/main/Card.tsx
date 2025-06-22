@@ -106,11 +106,13 @@ export default function Card({ scenario, index, callback }: { scenario: IScenari
             height: Platform.OS !== 'web' ? '90%' : '43%',
             backgroundColor: '#e5d8c4',
             alignSelf: 'center',
-            alignItems: "center",
-            shadowColor: '#000',
-            shadowOpacity: 0.45,
-            shadowOffset: { width: 0, height: 7 },
-            shadowRadius: 9.31,
+            alignItems: 'center',
+            boxShadow: {
+                color: '#000',
+                opacity: 0.45,
+                offset: { width: 0, height: 7 },
+                radius: 9.31,
+            },
             elevation: 7,
             borderRadius: 20,
             opacity: .9
@@ -119,7 +121,7 @@ export default function Card({ scenario, index, callback }: { scenario: IScenari
                 fontFamily: 'VixarASCI',
                 fontSize: 35,
                 color: nameColorMap[scenario.type],
-                paddingTop: 25,
+                paddingTop: 22,
                 maxWidth: 260,
                 minHeight: 50
             }}>
@@ -135,7 +137,7 @@ export default function Card({ scenario, index, callback }: { scenario: IScenari
             <View style={{
                 display: 'flex',
                 flexDirection: 'row',
-                marginTop: 10
+                marginTop: 17
             }}>
                 <Medal type={MedalType.Bronze} score={highscore}></Medal>
                 <Medal type={MedalType.Silver} score={highscore}></Medal>

@@ -1,5 +1,6 @@
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import data from '@/data/CardsData.json';
+import { getDefaultLanguage } from "@/utils/getDefaultLanguage";
 
 export interface IStorageData {
     audio: boolean;
@@ -48,7 +49,7 @@ export default class DataManager {
             version: this.dataVersion,
             scenarios: [],
             lastScenario: 0,
-            currentLang: 'en'
+            currentLang: getDefaultLanguage()
         };
         for (let i: number = 0; i < data.scenarios.length; i++) {
             this.storageData.scenarios.push({ id: i, highscore: 0 });   

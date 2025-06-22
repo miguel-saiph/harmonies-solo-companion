@@ -25,7 +25,9 @@ export function CardNames({ animals, mapType }: { animals: IAnimalInfo[], mapTyp
     return (
         <View style={{
             display: 'flex',
-            flexDirection: 'row'
+            flexDirection: 'row',
+            alignItems: 'center',
+            width: '100%',
         }}>
             <View style={{
                 flex: Platform.OS !== 'web' ? 4 : 8,
@@ -47,7 +49,9 @@ export function CardNames({ animals, mapType }: { animals: IAnimalInfo[], mapTyp
                 })}
             </View>
             <View style={{
-                flex: 3
+                //flex: 3,
+                marginTop: 10,
+                marginRight: 25,
             }}>
                 {
                     
@@ -68,7 +72,7 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         flexWrap: 'wrap',
         // justifyContent: 'space-evenly',
-        alignItems:'center',
+        alignItems: 'center',
         marginVertical: 3,
         marginLeft: 60,
         // marginBottom: 5
@@ -90,10 +94,10 @@ const styles = StyleSheet.create({
         // textAlign: 'left',
     },
     map: {
-        width: 87,
-        height: 72,
-        paddingTop: 140,
-        paddingRight: 100,
+        width: 110,
+        height: 91,
+        //paddingTop: 140,
+        //paddingRight: 100,
         // flex: 3
     }
 });
