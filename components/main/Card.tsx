@@ -158,7 +158,7 @@ export default function Card({ scenario, index, callback }: { scenario: IScenari
                     }}
                     style={styles.appButtonContainer}
                 >
-                    <ThemedText adjustsFontSizeToFit={true} numberOfLines={1} style={styles.appButtonText} > {texts.button_submit[lang]} </ThemedText>
+                    <ThemedText adjustsFontSizeToFit={true} numberOfLines={1} style={[styles.appButtonText, {fontSize: texts.button_submit[lang].length >= 7 ? 20 : 24} ]} > {texts.button_submit[lang]} </ThemedText>
                 </TouchableOpacity>
 
                 <CustomModal modalVisible={modalVisible} width={'75%'} height={'50%'} onRequestClose={setModalVisible}
@@ -212,7 +212,7 @@ const styles = StyleSheet.create({
     },
     appButtonText: {
         fontFamily: 'VixarASCI',
-        fontSize: 24,
+        // fontSize: 24,
         color: "#fff",
         alignSelf: "center",
         textTransform: "uppercase"

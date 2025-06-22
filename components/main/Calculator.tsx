@@ -44,17 +44,62 @@ export function Calculator({ onScoreSubmitted, updateScore }: { onScoreSubmitted
                     height: 40,
                 }} />
             </TouchableOpacity>
-            <CustomModal modalVisible={modalVisible} width={'90%'} onRequestClose={setModalVisible}>
-                <View style={{ alignItems: 'center' }}>
+            <CustomModal modalVisible={modalVisible} width={'90%'} onRequestClose={setModalVisible} >
+                <View style={{ display: 'flex', alignItems: 'center' }}>
                     <ThemedText style={[styles.modalText, styles.title]}>{texts.calculator_title[lang]}</ThemedText>
-                    <View style={{ alignItems: 'center' }}>
-                        {/* Animal */}
-                        <View style={{ flexDirection: 'row', paddingTop: 5 }}>
-                            <View style={{ flexDirection: 'row', flex: 3 }}>
-                                <Image source={require('@/assets/images/paw.png')} style={{ width: 30, height: 35, marginLeft: -10 }} />
-                                <ThemedText style={styles.modalText}>{texts.type_animals[lang]}</ThemedText>
+                    <View style={{ display: 'flex', flexDirection: 'row', gap: 30, padding: 10 }}>
+                        <View style={{ flex: 1 }}>
+                            {/* Animal */}
+                            <View style={{ flexDirection: 'row', paddingTop: 10 }}>
+                                <View style={{ flexDirection: 'row', flex: 3 }}>
+                                    <Image source={require('@/assets/images/paw.png')} style={{ width: 30, height: 35, marginLeft: -10 }} />
+                                    <ThemedText style={styles.modalText}>{texts.type_animals[lang]}</ThemedText>
+                                </View>
+
                             </View>
-                            <View style={{ flex: 1 }}>
+                            {/* Trees */}
+                            <View style={{ flexDirection: 'row', paddingTop: 10 }}>
+                                <View style={{ flexDirection: 'row', flex: 3 }}>
+                                    <Image source={require('@/assets/images/lines/line_grass.png')} style={styles.lineIcon} />
+                                    <ThemedText style={styles.modalText}>{texts.type_trees[lang]}</ThemedText>
+                                </View>
+
+                            </View>
+                            {/* Mountains */}
+                            <View style={{ flexDirection: 'row', paddingTop: 10 }}>
+                                <View style={{ flexDirection: 'row', flex: 3 }}>
+                                    <Image source={require('@/assets/images/lines/line_rock.png')} style={styles.lineIcon} />
+                                    <ThemedText style={styles.modalText}>{texts.type_mountains[lang]}</ThemedText>
+                                </View>
+
+                            </View>
+                            {/* Fields */}
+                            <View style={{ flexDirection: 'row', paddingTop: 10 }}>
+                                <View style={{ flexDirection: 'row', flex: 3 }}>
+                                    <Image source={require('@/assets/images/lines/line_land.png')} style={styles.lineIcon} />
+                                    <ThemedText style={styles.modalText}>{texts.type_fields[lang]}</ThemedText>
+                                </View>
+
+                            </View>
+                            {/* Buildings */}
+                            <View style={{ flexDirection: 'row', paddingTop: 10 }}>
+                                <View style={{ flexDirection: 'row', flex: 3 }}>
+                                    <Image source={require('@/assets/images/lines/line_constru.png')} style={styles.lineIcon} />
+                                    <ThemedText style={styles.modalText}>{texts.type_buildings[lang]}</ThemedText>
+                                </View>
+
+                            </View>
+                            {/* Water */}
+                            <View style={{ flexDirection: 'row', paddingTop: 10 }}>
+                                <View style={{ flexDirection: 'row', flex: 3 }}>
+                                    <Image source={require('@/assets/images/lines/line_water.png')} style={styles.lineIcon} />
+                                    <ThemedText style={styles.modalText}>{texts.type_water[lang]}</ThemedText>
+                                </View>
+
+                            </View>
+                        </View>
+                        <View style={{ flex: 1 }}>
+                            <View style={{ paddingTop: 5 }}>
                                 <TextInput
                                     style={styles.input}
                                     keyboardType="numeric"
@@ -63,14 +108,7 @@ export function Calculator({ onScoreSubmitted, updateScore }: { onScoreSubmitted
                                     maxLength={3}
                                 />
                             </View>
-                        </View>
-                        {/* Trees */}
-                        <View style={{ flexDirection: 'row', paddingTop: 5 }}>
-                            <View style={{ flexDirection: 'row', flex: 3 }}>
-                                <Image source={require('@/assets/images/lines/line_grass.png')} style={styles.lineIcon} />
-                                <ThemedText style={styles.modalText}>{texts.type_trees[lang]}</ThemedText>
-                            </View>
-                            <View style={{ flex: 1 }}>
+                            <View style={{ paddingTop: 5 }}>
                                 <TextInput
                                     style={styles.input}
                                     keyboardType="numeric"
@@ -79,14 +117,7 @@ export function Calculator({ onScoreSubmitted, updateScore }: { onScoreSubmitted
                                     maxLength={3}
                                 />
                             </View>
-                        </View>
-                        {/* Mountains */}
-                        <View style={{ flexDirection: 'row', paddingTop: 5 }}>
-                            <View style={{ flexDirection: 'row', flex: 3 }}>
-                                <Image source={require('@/assets/images/lines/line_rock.png')} style={styles.lineIcon} />
-                                <ThemedText style={styles.modalText}>{texts.type_mountains[lang]}</ThemedText>
-                            </View>
-                            <View style={{ flex: 1 }}>
+                            <View style={{ paddingTop: 5 }}>
                                 <TextInput
                                     style={styles.input}
                                     keyboardType="numeric"
@@ -95,14 +126,7 @@ export function Calculator({ onScoreSubmitted, updateScore }: { onScoreSubmitted
                                     maxLength={3}
                                 />
                             </View>
-                        </View>
-                        {/* Fields */}
-                        <View style={{ flexDirection: 'row', paddingTop: 5 }}>
-                            <View style={{ flexDirection: 'row', flex: 3 }}>
-                                <Image source={require('@/assets/images/lines/line_land.png')} style={styles.lineIcon} />
-                                <ThemedText style={styles.modalText}>{texts.type_fields[lang]}</ThemedText>
-                            </View>
-                            <View style={{ flex: 1 }}>
+                            <View style={{ paddingTop: 5 }}>
                                 <TextInput
                                     style={styles.input}
                                     keyboardType="numeric"
@@ -111,14 +135,7 @@ export function Calculator({ onScoreSubmitted, updateScore }: { onScoreSubmitted
                                     maxLength={3}
                                 />
                             </View>
-                        </View>
-                        {/* Buildings */}
-                        <View style={{ flexDirection: 'row', paddingTop: 5 }}>
-                            <View style={{ flexDirection: 'row', flex: 3 }}>
-                                <Image source={require('@/assets/images/lines/line_constru.png')} style={styles.lineIcon} />
-                                <ThemedText style={styles.modalText}>{texts.type_buildings[lang]}</ThemedText>
-                            </View>
-                            <View style={{ flex: 1 }}>
+                            <View style={{ paddingTop: 5 }}>
                                 <TextInput
                                     style={styles.input}
                                     keyboardType="numeric"
@@ -127,14 +144,7 @@ export function Calculator({ onScoreSubmitted, updateScore }: { onScoreSubmitted
                                     maxLength={3}
                                 />
                             </View>
-                        </View>
-                        {/* Water */}
-                        <View style={{ flexDirection: 'row', paddingTop: 5 }}>
-                            <View style={{ flexDirection: 'row', flex: 3 }}>
-                                <Image source={require('@/assets/images/lines/line_water.png')} style={styles.lineIcon} />
-                                <ThemedText style={styles.modalText}>{texts.type_water[lang]}</ThemedText>
-                            </View>
-                            <View style={{ flex: 1 }}>
+                            <View style={{ paddingTop: 5 }}>
                                 <TextInput
                                     style={styles.input}
                                     keyboardType="numeric"
@@ -144,8 +154,12 @@ export function Calculator({ onScoreSubmitted, updateScore }: { onScoreSubmitted
                                 />
                             </View>
                         </View>
-                        <ThemedText style={[styles.modalText, styles.total]}>Total: {total} </ThemedText>
                     </View>
+
+
+
+
+                    <ThemedText style={[styles.modalText, styles.total]}>Total: {total} </ThemedText>
                     <TouchableOpacity
                         activeOpacity={1}
                         onPress={() => {

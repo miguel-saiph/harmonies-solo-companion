@@ -36,8 +36,8 @@ export function Trash({ onResetScore }: { onResetScore: Function }) {
                 }} />
             </TouchableOpacity>
             <CustomModal modalVisible={modalVisible} width={'75%'} height={'32%'} onRequestClose={setModalVisible} children={
-                <View style={{ flex: 1 }}>
-                    <ThemedText adjustsFontSizeToFit={true} numberOfLines={2} style={styles.modalText}>{texts.trash_confirmation[lang]} </ThemedText>
+                <View style={{ flex: 2 }}>
+                    <ThemedText adjustsFontSizeToFit={true} numberOfLines={2} style={[styles.modalText]}>{texts.trash_confirmation[lang]} </ThemedText>
                     <View style={{
                         alignItems: 'center',
                         justifyContent: 'center',
@@ -66,7 +66,7 @@ export function Trash({ onResetScore }: { onResetScore: Function }) {
 const styles = StyleSheet.create({
     modalText: {
         // marginBottom: 2,
-        fontSize: 34,
+        fontSize: 30,
         fontFamily: 'VixarASCI',
         color: "black",
         textAlign: 'center'
